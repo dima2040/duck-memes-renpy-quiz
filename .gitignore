@@ -1,0 +1,14 @@
+# Ren'Py saves, logs and generated distributions
+log.txt
+traceback.txt
+errors.txt
+saves/
+cache/
+*.rpyc
+*.rpyb
+
+# Generated builds and editor artifacts
+builds/
+dist/
+.vscode/
+.idea/
