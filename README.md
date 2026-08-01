@@ -10,7 +10,7 @@
    `C:\Users\Lenovo\Documents\Downloads\renpy-8.5.3-sdk\renpy.exe`
 2. Если проект не виден в списке, откройте `preferences` в Launcher и установите
    `Projects Directory` на:
-   `C:\Users\Lenovo\.codex\worktrees\ee3c`
+   `C:\Users\Lenovo\Documents\Codex\2026-07-21`
 3. В списке проектов выберите `Duck Memes Ren'Py Quiz`
    (папка `fullstack-ren-py-github-cli-gh`).
 4. Нажмите `Launch Project`.
@@ -18,7 +18,7 @@
 Альтернативно из PowerShell:
 
 ```powershell
-& "C:\Users\Lenovo\Documents\Downloads\renpy-8.5.3-sdk\renpy.exe" "C:\Users\Lenovo\.codex\worktrees\ee3c\fullstack-ren-py-github-cli-gh"
+& "C:\Users\Lenovo\Documents\Downloads\renpy-8.5.3-sdk\renpy.exe" "C:\Users\Lenovo\Documents\Codex\2026-07-21\fullstack-ren-py-github-cli-gh"
 ```
 
 ## Проверка Sprint 0
