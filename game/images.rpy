@@ -1,5 +1,5 @@
 ################################################################################
-## Temporary Sprint 0 placeholder art.
+## Temporary placeholder art.
 ################################################################################
 
 image bg_school = "images/bg_school.png"
@@ -14,4 +14,8 @@ image bg_game_over = "images/bg_game_over.png"
 
 image teacher_funny = "images/teacher_funny.png"
 image duck_hero = "images/duck_hero.png"
+
+# Sprint 1 temporary character stand-in for МужикБыкКорова.
+# Replace with the approved final character asset in a later art sprint.
+image mbk_placeholder = "images/teacher_funny.png"
 
