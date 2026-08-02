@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="680" viewBox="0 0 560 680">
+  <title>Temporary MBK placeholder</title>
+  <defs>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#071019" flood-opacity="0.30"/>
+    </filter>
+    <linearGradient id="beardGold" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffd27a"/>
+      <stop offset="1" stop-color="#d99742"/>
+    </linearGradient>
+    <linearGradient id="coatBlue" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#2f5f7c"/>
+      <stop offset="1" stop-color="#1c3347"/>
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#softShadow)" stroke="#111b25" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M188 428 L372 428 C432 492 454 580 438 676 L122 676 C106 580 128 492 188 428 Z" fill="url(#coatBlue)"/>
+    <path d="M244 438 L316 438 L300 548 L280 606 L260 548 Z" fill="#f5eee3" stroke-width="6"/>
+    <path d="M150 436 C118 490 100 574 98 676 L462 676 C460 574 442 490 410 436" fill="none" opacity="0.45"/>
+
+    <path d="M165 95 C105 55 68 18 54 18 C42 64 54 136 104 177 L166 196 Z" fill="#f8f4e8"/>
+    <path d="M395 95 C455 55 492 18 506 18 C518 64 506 136 456 177 L394 196 Z" fill="#f8f4e8"/>
+
+    <path d="M154 216 C110 170 54 166 30 206 C76 230 123 234 164 258 Z" fill="#fff6ea"/>
+    <path d="M406 216 C450 170 506 166 530 206 C484 230 437 234 396 258 Z" fill="#fff6ea"/>
+    <path d="M78 202 C106 192 129 195 151 218" fill="none" stroke="#c8839a" stroke-width="6"/>
+    <path d="M482 202 C454 192 431 195 409 218" fill="none" stroke="#c8839a" stroke-width="6"/>
+
+    <path d="M280 114 C372 114 432 194 418 292 C406 377 354 454 280 454 C206 454 154 377 142 292 C128 194 188 114 280 114 Z" fill="#fff8ec"/>
+
+    <path d="M162 158 C196 100 254 72 319 86 C360 95 388 122 403 164 C336 140 233 142 162 158 Z" fill="#f4bf66"/>
+    <path d="M181 129 C231 104 290 99 351 118" fill="none" stroke="#111b25" stroke-width="5"/>
+    <path d="M202 151 C246 134 301 132 356 148" fill="none" stroke="#111b25" stroke-width="5"/>
+    <path d="M236 174 C268 162 309 162 342 174" fill="none" stroke="#111b25" stroke-width="5"/>
+
+    <path d="M170 300 C184 389 221 492 280 526 C339 492 376 389 390 300 C366 412 319 444 280 444 C241 444 194 412 170 300 Z" fill="url(#beardGold)"/>
+    <path d="M206 384 C236 412 322 412 354 384" fill="none" stroke="#111b25" stroke-width="5"/>
+    <path d="M210 432 C233 462 328 462 350 432" fill="none" stroke="#111b25" stroke-width="5"/>
+    <path d="M218 472 C248 500 312 500 342 472" fill="none" stroke="#111b25" stroke-width="5"/>
+
+    <path d="M198 252 C228 240 251 241 270 253" fill="none" stroke-width="6"/>
+    <path d="M362 252 C332 240 309 241 290 253" fill="none" stroke-width="6"/>
+    <path d="M216 284 C235 274 254 275 269 288" fill="none" stroke-width="5"/>
+    <path d="M344 284 C325 274 306 275 291 288" fill="none" stroke-width="5"/>
+    <circle cx="241" cy="287" r="7" fill="#2d4152" stroke-width="0"/>
+    <circle cx="319" cy="287" r="7" fill="#2d4152" stroke-width="0"/>
+    <path d="M278 286 C272 309 272 329 280 347 C288 329 288 309 282 286" fill="none" stroke-width="5"/>
+
+    <path d="M193 327 C211 299 248 294 280 310 C312 294 349 299 367 327 C355 371 326 396 280 396 C234 396 205 371 193 327 Z" fill="#d5a0a5"/>
+    <path d="M232 336 C239 321 253 321 259 336 C260 358 236 358 232 336 Z" fill="#101820" stroke-width="4"/>
+    <path d="M301 336 C307 321 321 321 328 336 C324 358 300 358 301 336 Z" fill="#101820" stroke-width="4"/>
+    <path d="M218 385 C245 374 265 371 280 382 C295 371 315 374 342 385" fill="none" stroke="#111b25" stroke-width="8"/>
+    <path d="M220 386 C246 410 265 415 280 407 C295 415 314 410 340 386" fill="#f5bf74" stroke-width="6"/>
+
+    <path d="M148 222 L124 268 L128 322 L164 336 L180 292" fill="none" opacity="0.7"/>
+    <path d="M412 222 L436 268 L432 322 L396 336 L380 292" fill="none" opacity="0.7"/>
+    <path d="M49 236 L49 300" stroke="#111b25"/>
+    <path d="M31 300 L67 300 L67 356 L31 356 Z" fill="#f2a33a" stroke-width="6"/>
+    <path d="M31 318 L67 338" stroke="#111b25" stroke-width="4"/>
+
+    <path d="M214 514 C226 532 248 542 280 542 C312 542 334 532 346 514" fill="none" opacity="0.55"/>
+    <path d="M132 624 L224 624 L224 656 L132 656 Z" fill="#0f1822" stroke-width="4"/>
+    <text x="178" y="647" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" font-weight="700" fill="#f4bf66" stroke="none">TEMP MBK</text>
+  </g>
+</svg>

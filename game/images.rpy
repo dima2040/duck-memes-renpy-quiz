@@ -15,7 +15,7 @@ image bg_game_over = "images/bg_game_over.png"
 image teacher_funny = "images/teacher_funny.png"
 image duck_hero = "images/duck_hero.png"
 
-# Sprint 1 temporary character stand-in for МужикБыкКорова.
-# Replace with the approved final character asset in a later art sprint.
-image mbk_placeholder = "images/teacher_funny.png"
+# Sprint 3 temporary, user-reference-based stand-in for МужикБыкКорова.
+# It is not final release art and needs approval/replacement in a later art pass.
+image mbk_placeholder = "images/characters/mbk_placeholder.svg"
 

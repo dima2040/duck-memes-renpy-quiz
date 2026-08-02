@@ -8,14 +8,14 @@ define config.name = _("Duck Memes Ren'Py Quiz")
 define config.window_title = _("Duck Memes Ren'Py Quiz")
 define gui.show_name = True
 
-define config.version = "0.3.0-sprint2"
+define config.version = "0.4.0-sprint3"
 define build.name = "duck_memes_renpy_quiz"
-define build.version = "0.3.0-sprint2"
+define build.version = "0.4.0-sprint3"
 
-define gui.about = _("""Sprint 2 expandable content system.
+define gui.about = _("""Sprint 3 art, audio, and identity pass.
 
-Three quiz rounds with short VN interludes.
-Quiz question data is separated from the hand-authored scene flow.""")
+Three quiz rounds with short VN interludes remain intact.
+MuzhikBykKorova now has a distinct temporary reference-based placeholder.""")
 
 define config.has_sound = True
 define config.has_music = True
@@ -34,7 +34,7 @@ define config.window_hide_transition = Dissolve(.2)
 default preferences.text_cps = 0
 default preferences.afm_time = 15
 
-define config.save_directory = "duck-memes-renpy-quiz-sprint2"
+define config.save_directory = "duck-memes-renpy-quiz-sprint3"
 define config.window_icon = None
 
 init python:
