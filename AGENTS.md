@@ -36,6 +36,8 @@ This project is developed as a Ren'Py game intended for a production release on 
 
 - Implement every new sprint or large task in a separate Codex thread.
 - When a sprint or large task starts, run it in goal mode with a concrete objective.
+- Commit each ready implementation checkpoint before moving to the next sprint or major task, unless the user explicitly asks to keep changes uncommitted.
+- Keep commits scoped to one ready step or sprint.
 - The planning thread should not become the implementation thread unless the user explicitly says so.
 - Each implementation thread should:
   - read the relevant GitHub Issue before changing files;
