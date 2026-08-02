@@ -1,5 +1,5 @@
-# Sprint 1 vertical slice.
-# Quiz content uses only the existing Sprint 0 prototype meme seed.
+# Sprint 2 vertical slice.
+# Quiz content lives in quiz_content.rpy and uses the Sprint 0 prototype meme seed.
 # It is temporary content, not final approved meme canon.
 
 define mbk = Character("МужикБыкКорова", color="#ffd84d")
@@ -10,6 +10,7 @@ label start:
     $ score = 0
     $ mistakes = 0
     $ round_score = 0
+    $ round_total = 0
 
     scene bg_school
     show mbk_placeholder at center
@@ -23,9 +24,53 @@ label start:
     jump round_1_intro
 
 
-label round_1_intro:
-    $ round_score = 0
+label say_quiz_line(speaker_id, line_text):
+    if speaker_id == "mbk":
+        mbk "[line_text]"
+    elif speaker_id == "neo":
+        neo "[line_text]"
+    elif speaker_id == "p":
+        p "[line_text]"
+    else:
+        "[line_text]"
 
+    return
+
+
+label play_quiz_question(question_data):
+    $ mbk(question_data["prompt"])
+    $ selected_answer = renpy.display_menu([(answer["text"], answer) for answer in question_data["answers"]])
+
+    if selected_answer["correct"]:
+        $ score += 1
+        $ round_score += 1
+    else:
+        $ mistakes += 1
+
+    $ response_line_index = 0
+
+    while response_line_index < len(selected_answer["response"]):
+        $ speaker_id, line_text = selected_answer["response"][response_line_index]
+        call say_quiz_line(speaker_id, line_text)
+        $ response_line_index += 1
+
+    return
+
+
+label play_quiz_round(round_data):
+    $ round_score = 0
+    $ round_total = len(round_data["questions"])
+    $ question_index = 0
+
+    while question_index < len(round_data["questions"]):
+        $ question_data = round_data["questions"][question_index]
+        call play_quiz_question(question_data)
+        $ question_index += 1
+
+    return
+
+
+label round_1_intro:
     scene bg_classroom
     show mbk_placeholder at center
 
@@ -33,76 +78,7 @@ label round_1_intro:
     mbk "Задача простая: отличить смешное от несмешного на самом примитивном уровне."
     neo "Мы готовы. У нас уже есть четыре случайных звука и полная уверенность."
 
-    jump r1_q1
-
-
-label r1_q1:
-    mbk "Вопрос 1. Какой звук обычно лучше всего подходит утке?"
-
-    menu:
-        "Кля":
-            $ mistakes += 1
-            neo "Кля! Утка как будто подписывает объяснительную."
-            mbk "Не база. Кля - не всякий звук, а клятва."
-        "Ква":
-            $ mistakes += 1
-            neo "Ква! Потому что тоже мокро."
-            mbk "Лужа не делает тебя экспертом."
-        "Кря":
-            $ score += 1
-            $ round_score += 1
-            mbk "Кря. База услышана, класс на секунду перестал шуметь неправильно."
-        "Покляйко":
-            $ mistakes += 1
-            p "Меня вызвали слишком рано."
-            mbk "Имя героя - не звук утки."
-
-    jump r1_q2
-
-
-label r1_q2:
-    mbk "Вопрос 2. Тебя просят подтвердить, что ты не списывал. Что звучит как максимально серьёзное обещание?"
-
-    menu:
-        "Крякай, я сам всё придумал":
-            $ mistakes += 1
-            neo "Зато громко."
-            mbk "Громкость не заменяет ответственность."
-        "Клянись!":
-            $ score += 1
-            $ round_score += 1
-            mbk "Верно. Клятва держит форму, даже если дневник дрожит."
-        "Покря!":
-            $ mistakes += 1
-            neo "Покря звучит как маленькая печать."
-            mbk "Печать без смысла ставят только на несданную тетрадь."
-        "Ква-ква, честное слово":
-            $ mistakes += 1
-            mbk "Слишком болотный уровень серьёзности."
-
-    jump r1_q3
-
-
-label r1_q3:
-    mbk "Вопрос 3. Какая фраза больше всего похожа на команду утиной команде начать шуметь?"
-
-    menu:
-        "Кляйко, замри":
-            $ mistakes += 1
-            neo "Но зато дисциплина."
-            mbk "Раунд про шум, а не про обеденный сон."
-        "Покляйкомэн, активируй тишину":
-            $ mistakes += 1
-            p "Я могу, но это другая серия."
-            mbk "Тишина здесь не спасает мем."
-        "Крякай!":
-            $ score += 1
-            $ round_score += 1
-            mbk "Именно. Команда короткая, образ ясный, неофиты записали без перевода."
-        "Ква, строимся по парам":
-            $ mistakes += 1
-            neo "А если по парам смешнее?"
-            mbk "Нет. Это уже физкультура, а не база."
+    call play_quiz_round(quiz_round_by_id("base"))
 
     jump interlude_1
 
@@ -111,7 +87,7 @@ label interlude_1:
     scene bg_corridor
     show mbk_placeholder at center
 
-    mbk "Раунд закрыт: [round_score] из 3."
+    mbk "Раунд закрыт: [round_score] из [round_total]."
     neo "Мы поняли! Если слово короткое, оно автоматически мем?"
     mbk "Нет. Коротким бывает и неправильный ответ."
     mbk "Теперь мало выбрать правильное. Надо объяснить, почему оно держится."
@@ -120,8 +96,6 @@ label interlude_1:
 
 
 label round_2_intro:
-    $ round_score = 0
-
     scene bg_library
     show mbk_placeholder at center
 
@@ -129,73 +103,7 @@ label round_2_intro:
     mbk "Канон не зубрят как параграф. Его понимают, иначе он разваливается при первом «ква» из последней парты."
     neo "Последняя парта готова разваливать."
 
-    jump r2_q1
-
-
-label r2_q1:
-    mbk "Вопрос 4. Почему «Кря» работает как базовый утиный мем-сигнал?"
-
-    menu:
-        "Потому что звук и образ совпадают":
-            $ score += 1
-            $ round_score += 1
-            mbk "Верно. Узнаваемость - первый гвоздь в доске канона."
-        "Потому что оно длиннее, чем Ква":
-            $ mistakes += 1
-            neo "Длина важна. Наверное."
-            mbk "Мем не линейкой измеряют."
-        "Потому что любое слово с буквой «р» смешное":
-            $ mistakes += 1
-            mbk "Опасная теория. Так можно случайно канонизировать расписание."
-        "Потому что Покляйкомэн так захотел":
-            $ mistakes += 1
-            p "Я польщён, но кодекс старше моего плаща."
-
-    jump r2_q2
-
-
-label r2_q2:
-    mbk "Вопрос 5. Когда «Клянись!» становится сильным мемным жестом?"
-
-    menu:
-        "Когда нужно торжественно подтвердить серьёзность":
-            $ score += 1
-            $ round_score += 1
-            mbk "Точно. Серьёзность доведена до школьного абсурда."
-        "Когда хочется заменить любой ответ одним словом":
-            $ mistakes += 1
-            neo "Удобно же."
-            mbk "Удобство - не оправдание для пустоты."
-        "Когда учитель отвернулся":
-            $ mistakes += 1
-            mbk "Это не кодекс, это бытовая паника."
-        "Когда Кря уже занято":
-            $ mistakes += 1
-            mbk "Слова не стулья в столовой."
-
-    jump r2_q3
-
-
-label r2_q3:
-    mbk "Вопрос 6. Что делает Покляйкомэна супергероем локальных мемов?"
-
-    menu:
-        "Он превращает школьное обещание в легенду":
-            $ score += 1
-            $ round_score += 1
-            p "Покляйкомэн на связи. Контрольная дрожит, но держится."
-            mbk "Верно. Герой усиливает смысл, а не просто машет словом."
-        "Он громче всех говорит «Ква»":
-            $ mistakes += 1
-            neo "Громкий герой тоже герой."
-            mbk "Нет. Это просто микрофон без присмотра."
-        "Он отменяет все вопросы":
-            $ mistakes += 1
-            p "Мечтаю, но не могу."
-            mbk "Даже герой не отменяет проверку базы."
-        "Он делает любую случайность каноном":
-            $ mistakes += 1
-            mbk "Случайность может быть смешной, но канон требует формы."
+    call play_quiz_round(quiz_round_by_id("code"))
 
     jump interlude_2
 
@@ -204,7 +112,7 @@ label interlude_2:
     scene bg_gym
     show mbk_placeholder at center
 
-    mbk "Раунд закрыт: [round_score] из 3."
+    mbk "Раунд закрыт: [round_score] из [round_total]."
     neo "А если мы смешаем Кля, Ква, Кря и Покря, добавим крик и объявим это гениальным?"
     mbk "Тогда школьный чат получит шум, но не легенду."
     mbk "Финальный раунд будет под давлением. Неофиты начнут шутить неправильно прямо во время ответа."
@@ -213,8 +121,6 @@ label interlude_2:
 
 
 label round_3_intro:
-    $ round_score = 0
-
     scene bg_rooftop
     show mbk_placeholder at center
 
@@ -222,72 +128,7 @@ label round_3_intro:
     mbk "Теперь ты не просто выбираешь ответ. Ты удерживаешь канон, пока класс пытается утащить его в шум."
     neo "Мы уже тащим."
 
-    jump r3_q1
-
-
-label r3_q1:
-    mbk "Вопрос 7. В чат кидают: «Ква-ква, покрякали, база закрыта». Что нужно сделать?"
-
-    menu:
-        "Остановить Ква, вернуть Кря и объяснить без крика":
-            $ score += 1
-            $ round_score += 1
-            mbk "Верно. Легенда не орёт на ошибку, а ставит её на место."
-        "Согласиться, ведь в чате уже весело":
-            $ mistakes += 1
-            neo "Веселье есть, значит зачёт?"
-            mbk "Веселье без различения быстро превращается в перемену без звонка."
-        "Добавить ещё три случайных слова":
-            $ mistakes += 1
-            mbk "Случайность нельзя лечить случайностью."
-        "Позвать Покляйкомэна и уйти":
-            $ mistakes += 1
-            p "Я за помощь, но легенду за тебя не проживу."
-
-    jump r3_q2
-
-
-label r3_q2:
-    mbk "Вопрос 8. Неофит говорит: «Покляйко Squad - это любое название, где есть Squad». Какой ответ держит кодекс?"
-
-    menu:
-        "Смысл держится на Кляйко, Покляйко и Уте, а не только на вывеске":
-            $ score += 1
-            $ round_score += 1
-            mbk "Точно. Название без состава - табличка на пустом кабинете."
-        "Да, Squad решает всё":
-            $ mistakes += 1
-            neo "Мы теперь тоже Squad."
-            mbk "Не каждый кружок с английским словом становится легендой."
-        "Нужно заменить Утю на Ква":
-            $ mistakes += 1
-            mbk "Это уже подмена, а не толкование."
-        "Нужно говорить название только шёпотом":
-            $ mistakes += 1
-            mbk "Таинственность не чинит пустой смысл."
-
-    jump r3_q3
-
-
-label r3_q3:
-    mbk "Вопрос 9. Последняя парта требует назвать порядок из четырёх прототипных мем-слов без лишних слов. Что выбираешь?"
-
-    menu:
-        "Кля, Ква, Кря, Покря":
-            $ score += 1
-            $ round_score += 1
-            mbk "Порядок назван. Даже мел замер в уважении."
-        "Кляйко, Ква, Кря, Утя":
-            $ mistakes += 1
-            neo "Почти же похоже."
-            mbk "Похоже - любимая маска ошибки."
-        "Покря, Покляйко, Клянись, Крякай":
-            $ mistakes += 1
-            mbk "Смешал команды, имена и сигналы. Класс рад, кодекс нет."
-        "Кря, Крякай, Покляйкомэн, Кля":
-            $ mistakes += 1
-            p "Я внезапно оказался в списке слов."
-            mbk "Героя не кладут в словарь без причины."
+    call play_quiz_round(quiz_round_by_id("legend_trial"))
 
     jump finale_check
 
@@ -297,9 +138,11 @@ label finale_check:
     show mbk_placeholder at left
     show duck_hero at right
 
-    mbk "Три раунда закончены. Итог: [score] из 9."
+    $ total_questions = quiz_total_questions()
 
-    if score >= 7:
+    mbk "Три раунда закончены. Итог: [score] из [total_questions]."
+
+    if score >= QUIZ_LEGEND_THRESHOLD:
         jump victory
     else:
         jump game_over
@@ -313,7 +156,7 @@ label victory:
     mbk "С этого момента школа признаёт тебя восходящей легендой мем-канона."
 
     menu:
-        "Пройти Sprint 1 ещё раз":
+        "Пройти Sprint 2 ещё раз":
             jump start
         "Выйти из игры":
             return
@@ -323,7 +166,9 @@ label game_over:
     scene bg_game_over
     show mbk_placeholder at center
 
-    mbk "Итог: [score] из 9. Ошибок: [mistakes]."
+    $ total_questions = quiz_total_questions()
+
+    mbk "Итог: [score] из [total_questions]. Ошибок: [mistakes]."
     mbk "Канон не рухнул, но неофиты пока слишком бодро несут неправильные шутки."
     neo "Мы можем ещё раз неправильно?"
     mbk "Можете. Но следующий заход должен стать уроком, а не шумовым кружком."
