@@ -13,7 +13,8 @@ label start:
     $ round_total = 0
 
     scene bg_school
-    show mbk_placeholder at center
+    show neophyte_crowd at neophytes_right
+    show mbk_placeholder at mbk_left
 
     mbk "В школьном коридоре случилась мемная тревога."
     mbk "Неофиты шутят громко, но не туда. Они путают Кля, Ква, Кря и Покря так уверенно, будто это расписание."
@@ -72,7 +73,8 @@ label play_quiz_round(round_data):
 
 label round_1_intro:
     scene bg_classroom
-    show mbk_placeholder at center
+    show neophyte_crowd at neophytes_right
+    show mbk_placeholder at mbk_left
 
     mbk "Раунд 1: «База»."
     mbk "Задача простая: отличить смешное от несмешного на самом примитивном уровне."
@@ -85,7 +87,8 @@ label round_1_intro:
 
 label interlude_1:
     scene bg_corridor
-    show mbk_placeholder at center
+    show neophyte_crowd at neophytes_right
+    show mbk_placeholder at mbk_left
 
     mbk "Раунд закрыт: [round_score] из [round_total]."
     neo "Мы поняли! Если слово короткое, оно автоматически мем?"
@@ -97,7 +100,8 @@ label interlude_1:
 
 label round_2_intro:
     scene bg_library
-    show mbk_placeholder at center
+    show neophyte_crowd at neophytes_right
+    show mbk_placeholder at mbk_left
 
     mbk "Раунд 2: «Кодекс»."
     mbk "Канон не зубрят как параграф. Его понимают, иначе он разваливается при первом «ква» из последней парты."
@@ -110,7 +114,8 @@ label round_2_intro:
 
 label interlude_2:
     scene bg_gym
-    show mbk_placeholder at center
+    show neophyte_crowd at neophytes_right
+    show mbk_placeholder at mbk_left
 
     mbk "Раунд закрыт: [round_score] из [round_total]."
     neo "А если мы смешаем Кля, Ква, Кря и Покря, добавим крик и объявим это гениальным?"
@@ -122,7 +127,8 @@ label interlude_2:
 
 label round_3_intro:
     scene bg_rooftop
-    show mbk_placeholder at center
+    show neophyte_crowd at neophytes_right
+    show mbk_placeholder at mbk_left
 
     mbk "Раунд 3: «Испытание легенды»."
     mbk "Теперь ты не просто выбираешь ответ. Ты удерживаешь канон, пока класс пытается утащить его в шум."
@@ -135,8 +141,8 @@ label round_3_intro:
 
 label finale_check:
     scene bg_school_party
-    show mbk_placeholder at left
-    show duck_hero at right
+    show mbk_placeholder at mbk_left
+    show duck_hero at duck_right
 
     $ total_questions = quiz_total_questions()
 
@@ -164,7 +170,8 @@ label victory:
 
 label game_over:
     scene bg_game_over
-    show mbk_placeholder at center
+    show neophyte_crowd at neophytes_right
+    show mbk_placeholder at mbk_left
 
     $ total_questions = quiz_total_questions()
 

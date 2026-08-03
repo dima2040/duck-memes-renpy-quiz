@@ -24,7 +24,7 @@ Sprint 3 добавляет первый playable art/audio/identity pass:
    `C:\Users\Lenovo\Documents\Downloads\renpy-8.5.3-sdk\renpy.exe`
 2. Для проверки этой Codex-ветки откройте `preferences` в Launcher и установите
    `Projects Directory` на:
-   `C:\Users\Lenovo\.codex\worktrees\447f`
+   `C:\Users\Lenovo\.codex\worktrees\515d`
 3. В списке проектов выберите `Duck Memes Ren'Py Quiz`
    (папка `fullstack-ren-py-github-cli-gh`).
 4. Нажмите `Launch Project`.
@@ -32,10 +32,10 @@ Sprint 3 добавляет первый playable art/audio/identity pass:
 Альтернативно из PowerShell:
 
 ```powershell
-& "C:\Users\Lenovo\Documents\Downloads\renpy-8.5.3-sdk\renpy.exe" "C:\Users\Lenovo\.codex\worktrees\447f\fullstack-ren-py-github-cli-gh"
+& "C:\Users\Lenovo\Documents\Downloads\renpy-8.5.3-sdk\renpy.exe" "C:\Users\Lenovo\.codex\worktrees\515d\fullstack-ren-py-github-cli-gh"
 ```
 
-## Проверка Sprint 3
+## Проверка Sprint 3 / Visual Polish Checkpoint
 
 - Проект появляется и запускается в Ren'Py Launcher.
 - Игра по-прежнему проходит 3 квиз-раунда: `База`, `Кодекс`,
@@ -44,6 +44,10 @@ Sprint 3 добавляет первый playable art/audio/identity pass:
 - Между раундами остаются короткие VN-сцены с реакцией неофитов и эскалацией.
 - `МужикБыкКорова` визуально считывается как отдельный строгий мем-эксперт:
   рога, серьёзный взгляд, светлая борода/усы, ear tag.
+- Временные фоны и видимые спрайты выполнены в едином спокойном flat/vector-like
+  стиле без noisy placeholder labels.
+- `neophyte_crowd.png` используется как анонимная временная группа
+  неофитов/одноклассников, а не как новый named/canon character.
 - `teacher_funny.png` больше не используется как `mbk_placeholder`.
 - Нет ошибок missing image/font/config.
 - Ren'Py lint проходит.
@@ -51,7 +55,7 @@ Sprint 3 добавляет первый playable art/audio/identity pass:
 Команда для lint:
 
 ```powershell
-& "C:\Users\Lenovo\Documents\Downloads\renpy-8.5.3-sdk\renpy.exe" "C:\Users\Lenovo\.codex\worktrees\447f\fullstack-ren-py-github-cli-gh" lint
+& "C:\Users\Lenovo\Documents\Downloads\renpy-8.5.3-sdk\renpy.exe" "C:\Users\Lenovo\.codex\worktrees\515d\fullstack-ren-py-github-cli-gh" lint
 ```
 
 ## Редактирование Квиз-Контента
@@ -69,14 +73,16 @@ Sprint 3 добавляет первый playable art/audio/identity pass:
 
 Файлы в `game/images/` остаются placeholder-art.
 
-Sprint 3 добавляет `game/images/characters/mbk_placeholder.svg` как временный
+Sprint 3/visual-polish checkpoint использует `game/images/characters/mbk_placeholder.png` как временный
 asset для `МужикБыкКорова`, основанный на user-provided visual reference:
 
 `C:/Users/Lenovo/Pictures/photo_2024-12-08_17-36-04.jpg`
 
 Этот asset не является финальным релизным артом. Перед Steam/Android релизом
 нужно подтвердить стиль, права на использование reference/final asset и
-game-designer approval. Больше деталей: `docs/identity_notes.md` и
+game-designer approval. Также добавлен `game/images/characters/neophyte_crowd.png`
+как временный anonymous classmate/neophyte sprite, не новый named/canon character.
+Больше деталей: `docs/identity_notes.md` и
 `game/images/README.md`.
 
 ## Публикация На GitHub

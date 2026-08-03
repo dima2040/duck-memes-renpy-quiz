@@ -15,7 +15,20 @@ image bg_game_over = "images/bg_game_over.png"
 image teacher_funny = "images/teacher_funny.png"
 image duck_hero = "images/duck_hero.png"
 
-# Sprint 3 temporary, user-reference-based stand-in for МужикБыкКорова.
+# Cohesive temporary, user-reference-based stand-in for МужикБыкКорова.
 # It is not final release art and needs approval/replacement in a later art pass.
-image mbk_placeholder = "images/characters/mbk_placeholder.svg"
+image mbk_placeholder = "images/characters/mbk_placeholder.png"
+image neophyte_crowd = "images/characters/neophyte_crowd.png"
+
+transform mbk_left:
+    xalign 0.22
+    yalign 1.0
+
+transform neophytes_right:
+    xalign 0.88
+    yalign 1.0
+
+transform duck_right:
+    xalign 0.92
+    yalign 1.0
 
