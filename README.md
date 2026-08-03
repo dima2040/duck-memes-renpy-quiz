@@ -74,7 +74,8 @@ Sprint 3 добавляет первый playable art/audio/identity pass:
 Файлы в `game/images/` остаются placeholder-art.
 
 Sprint 3/visual-polish checkpoint использует `game/images/characters/mbk_placeholder.png` как временный
-asset для `МужикБыкКорова`, основанный на user-provided visual reference:
+user-provided sprite для `МужикБыкКорова`. Визуальное направление также связано с
+local visual reference:
 
 `C:/Users/Lenovo/Pictures/photo_2024-12-08_17-36-04.jpg`
 
