@@ -70,6 +70,7 @@ screen say(who, what):
 
 
 screen choice(items):
+    zorder 100
     style_prefix "choice"
 
     frame:
@@ -130,7 +131,7 @@ style choice_plate:
     yalign 1.0
     yoffset -18
     xsize 1140
-    background Solid("#121923d8")
+    background Solid("#121923fa")
     padding (24, 18, 24, 18)
 
 style choice_vbox:
@@ -139,10 +140,10 @@ style choice_vbox:
 style choice_button:
     xsize gui.choice_button_width
     yminimum 54
-    background Solid("#253240e6")
-    hover_background Solid("#334455f4")
-    selected_background Solid("#334455f4")
-    insensitive_background Solid("#25324099")
+    background Solid("#253240ff")
+    hover_background Solid("#334455ff")
+    selected_background Solid("#334455ff")
+    insensitive_background Solid("#253240c8")
     padding (24, 10, 24, 10)
 
 style choice_button_text:
