@@ -48,6 +48,8 @@ Sprint 3 добавляет первый playable art/audio/identity pass:
   стиле без noisy placeholder labels.
 - `bg_neophyte_classroom.png` используется как user-provided временный фон с
   неофитами/одноклассниками, а не как новый named/canon character.
+- `bg_school_party.png` используется как user-provided временный финальный фон;
+  отдельный `duck_hero` больше не накладывается поверх этой сцены.
 - `teacher_funny.png` больше не используется как `mbk_placeholder`.
 - Нет ошибок missing image/font/config.
 - Ren'Py lint проходит.
@@ -83,6 +85,8 @@ local visual reference:
 нужно подтвердить стиль, права на использование reference/final asset и
 game-designer approval. Также добавлен `game/images/bg_neophyte_classroom.png`
 как временный user-provided classmate/neophyte background, не новый named/canon character.
+`game/images/bg_school_party.png` тоже заменён на временный user-provided
+finale/red-carpet background.
 Больше деталей: `docs/identity_notes.md` и
 `game/images/README.md`.
 

@@ -9,8 +9,11 @@ game is still moving through small playable checkpoints.
 - `bg_*.png` files are temporary school location backgrounds.
 - `bg_neophyte_classroom.png` is a user-provided temporary classmate/neophyte
   classroom background used in the current quiz/VN flow.
-- `duck_hero.png` is a cohesive temporary duck/Poklyaykomen visual placeholder
-  for the finale cameo, not a player avatar.
+- `bg_school_party.png` is a user-provided temporary finale/red-carpet
+  background. It currently includes the visible duck/Poklyaykomen finale visual
+  in the background image itself.
+- `duck_hero.png` is a legacy generated duck/Poklyaykomen visual placeholder,
+  kept available but no longer shown in the current finale.
 - `teacher_funny.png` is a legacy generic teacher placeholder.
 - `characters/` contains character-specific placeholders introduced after the
   original Sprint 0/Sprint 1 asset pass.
@@ -30,10 +33,10 @@ stern human-like eyes, blond hair/beard, mustache, glasses, formal teacher
 clothes, and ear tag. It is not final release art and needs game-designer
 approval or replacement before Steam/Android release.
 
-The generated cohesive temporary backgrounds and duck cameo are generated
-locally by `tools/generate_temp_visual_assets.py`. The MBK sprite and neophyte
-classroom background are user-provided in this checkpoint and remain subject to
-final designer/licensing approval.
+The generated cohesive temporary backgrounds and legacy duck cameo are generated
+locally by `tools/generate_temp_visual_assets.py`. The MBK sprite, neophyte
+classroom background, and finale/red-carpet background are user-provided in this
+checkpoint and remain subject to final designer/licensing approval.
 
 For broader visual, licensing, and audio direction, see
 `docs/identity_notes.md`.

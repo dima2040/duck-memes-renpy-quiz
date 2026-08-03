@@ -136,7 +136,6 @@ label round_3_intro:
 label finale_check:
     scene bg_school_party
     show mbk_placeholder at mbk_left
-    show duck_hero at duck_right
 
     $ total_questions = quiz_total_questions()
 

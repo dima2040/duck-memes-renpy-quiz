@@ -223,22 +223,6 @@ def draw_rooftop():
     save(img, IMAGE_DIR / "bg_rooftop.png", BG_SIZE)
 
 
-def draw_party():
-    img, d = background_base("#b7ced2", "#66815f", 486)
-    rect(d, (0, 0, 1280, 486), rgba("#9fb9bf"))
-    rect(d, (130, 300, 1150, 486), rgba(PALETTE["purple"]), rgba(PALETTE["ink"]))
-    polygon(d, [(130, 300), (640, 220), (1150, 300)], rgba(PALETTE["blue_dark"]), rgba(PALETTE["ink"]))
-    rect(d, (465, 350, 815, 486), rgba("#806e99"), rgba(PALETTE["ink"], 160), 3)
-    for x in range(140, 1140, 125):
-        ellipse(d, (x, 120, x + 28, 148), rgba(PALETTE["gold_light"]), rgba(PALETTE["ink"], 90), 2)
-    line(d, [(150, 138), (640, 105), (1130, 138)], rgba(PALETTE["cream"], 160), 3)
-    for x in (250, 330, 410, 870, 950, 1030):
-        ellipse(d, (x, 430, x + 42, 472), rgba(PALETTE["cream"], 190), rgba(PALETTE["ink"], 120), 2)
-        rect(d, (x - 4, 468, x + 46, 486), rgba(PALETTE["blue_dark"], 160))
-    line(d, [(0, 575), (1280, 575)], rgba(PALETTE["paper"], 140), 6)
-    save(img, IMAGE_DIR / "bg_school_party.png", BG_SIZE)
-
-
 def draw_game_over():
     img, d = background_base("#8fa3a8", "#4e5960", 462)
     rect(d, (0, 0, 1280, 462), rgba("#8fa3a8"))
@@ -280,10 +264,11 @@ def main():
     draw_library()
     draw_gym()
     draw_rooftop()
-    draw_party()
     draw_game_over()
-    # MBK now uses the user-provided sprite saved at
-    # game/images/characters/mbk_placeholder.png.
+    # User-provided checkpoint assets are intentionally not regenerated here:
+    # game/images/characters/mbk_placeholder.png,
+    # game/images/bg_neophyte_classroom.png,
+    # game/images/bg_school_party.png.
     draw_duck_hero()
 
 
