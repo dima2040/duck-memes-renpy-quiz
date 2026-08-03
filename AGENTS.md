@@ -39,7 +39,7 @@ This project is developed as a Ren'Py game intended for a production release on 
 - Commit each ready implementation checkpoint before moving to the next sprint or major task, unless the user explicitly asks to keep changes uncommitted.
 - Keep commits scoped to one ready step or sprint.
 - The planning thread should not become the implementation thread unless the user explicitly says so.
-- When the user asks to launch/open/test the latest version, use the canonical `main` checkout and run `tools/launch_latest.ps1` unless the user explicitly requests a specific task worktree or branch.
+- When the user asks to launch/open/test the latest version, use the canonical `main` checkout and run `tools/launch_latest.cmd` unless the user explicitly requests a specific task worktree or branch.
 - Do not silently fast-forward, rebase, or reset old implementation worktrees just to make them "latest"; create new implementation threads from the latest `main` after ready checkpoints are merged and pushed.
 - Each implementation thread should:
   - read the relevant GitHub Issue before changing files;

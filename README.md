@@ -38,7 +38,7 @@ Sprint 3 добавляет первый playable art/audio/identity pass:
 Latest playtest helper:
 
 ```powershell
-& "C:\Users\Lenovo\Documents\Codex\2026-07-21\fullstack-ren-py-github-cli-gh\tools\launch_latest.ps1"
+& "C:\Users\Lenovo\Documents\Codex\2026-07-21\fullstack-ren-py-github-cli-gh\tools\launch_latest.cmd"
 ```
 
 ## Проверка Sprint 3 / Visual Polish Checkpoint
