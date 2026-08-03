@@ -12,8 +12,7 @@ label start:
     $ round_score = 0
     $ round_total = 0
 
-    scene bg_school
-    show neophyte_crowd at neophytes_right
+    scene bg_neophyte_classroom
     show mbk_placeholder at mbk_left
 
     mbk "В школьном коридоре случилась мемная тревога."
@@ -72,8 +71,7 @@ label play_quiz_round(round_data):
 
 
 label round_1_intro:
-    scene bg_classroom
-    show neophyte_crowd at neophytes_right
+    scene bg_neophyte_classroom
     show mbk_placeholder at mbk_left
 
     mbk "Раунд 1: «База»."
@@ -86,8 +84,7 @@ label round_1_intro:
 
 
 label interlude_1:
-    scene bg_corridor
-    show neophyte_crowd at neophytes_right
+    scene bg_neophyte_classroom
     show mbk_placeholder at mbk_left
 
     mbk "Раунд закрыт: [round_score] из [round_total]."
@@ -99,8 +96,7 @@ label interlude_1:
 
 
 label round_2_intro:
-    scene bg_library
-    show neophyte_crowd at neophytes_right
+    scene bg_neophyte_classroom
     show mbk_placeholder at mbk_left
 
     mbk "Раунд 2: «Кодекс»."
@@ -113,8 +109,7 @@ label round_2_intro:
 
 
 label interlude_2:
-    scene bg_gym
-    show neophyte_crowd at neophytes_right
+    scene bg_neophyte_classroom
     show mbk_placeholder at mbk_left
 
     mbk "Раунд закрыт: [round_score] из [round_total]."
@@ -126,8 +121,7 @@ label interlude_2:
 
 
 label round_3_intro:
-    scene bg_rooftop
-    show neophyte_crowd at neophytes_right
+    scene bg_neophyte_classroom
     show mbk_placeholder at mbk_left
 
     mbk "Раунд 3: «Испытание легенды»."
@@ -169,8 +163,7 @@ label victory:
 
 
 label game_over:
-    scene bg_game_over
-    show neophyte_crowd at neophytes_right
+    scene bg_neophyte_classroom
     show mbk_placeholder at mbk_left
 
     $ total_questions = quiz_total_questions()

@@ -252,34 +252,6 @@ def draw_game_over():
     save(img, IMAGE_DIR / "bg_game_over.png", BG_SIZE)
 
 
-def draw_neophyte_crowd():
-    size = (540, 430)
-    img = canvas(size)
-    d = ImageDraw.Draw(img)
-    ink = rgba(PALETTE["ink"])
-    ellipse(d, (48, 382, 500, 420), rgba(PALETTE["shadow"], 55), None, 0)
-    desks = [(40, 295, 180, 360), (200, 280, 340, 360), (360, 295, 500, 360)]
-    for desk in desks:
-        round_rect(d, desk, 8, rgba(PALETTE["paper"]), ink, 3)
-    pupils = [
-        (95, 210, PALETTE["teal"]),
-        (230, 180, PALETTE["gold"]),
-        (320, 208, PALETTE["red"]),
-        (420, 190, PALETTE["purple"]),
-    ]
-    for x, y, color in pupils:
-        ellipse(d, (x - 38, y - 38, x + 38, y + 38), rgba("#f5d0aa"), ink, 4)
-        polygon(d, [(x - 56, y + 44), (x + 56, y + 44), (x + 78, y + 132), (x - 78, y + 132)], rgba(color), ink)
-        line(d, [(x - 16, y - 2), (x - 4, y + 2)], ink, 3)
-        line(d, [(x + 16, y - 2), (x + 4, y + 2)], ink, 3)
-        line(d, [(x - 13, y + 22), (x + 13, y + 22)], ink, 3)
-    ellipse(d, (56, 222, 82, 248), rgba(PALETTE["gold_light"]), ink, 3)
-    ellipse(d, (458, 224, 486, 252), rgba(PALETTE["gold_light"]), ink, 3)
-    line(d, [(68, 248), (68, 286)], rgba(PALETTE["gold_light"]), 4)
-    line(d, [(472, 252), (472, 288)], rgba(PALETTE["gold_light"]), 4)
-    save(img, CHARACTER_DIR / "neophyte_crowd.png", size)
-
-
 def draw_duck_hero():
     size = (430, 600)
     img = canvas(size)
@@ -312,7 +284,6 @@ def main():
     draw_game_over()
     # MBK now uses the user-provided sprite saved at
     # game/images/characters/mbk_placeholder.png.
-    draw_neophyte_crowd()
     draw_duck_hero()
 
 

@@ -7,6 +7,8 @@ game is still moving through small playable checkpoints.
 ## Layout
 
 - `bg_*.png` files are temporary school location backgrounds.
+- `bg_neophyte_classroom.png` is a user-provided temporary classmate/neophyte
+  classroom background used in the current quiz/VN flow.
 - `duck_hero.png` is a cohesive temporary duck/Poklyaykomen visual placeholder
   for the finale cameo, not a player avatar.
 - `teacher_funny.png` is a legacy generic teacher placeholder.
@@ -28,14 +30,10 @@ stern human-like eyes, blond hair/beard, mustache, glasses, formal teacher
 clothes, and ear tag. It is not final release art and needs game-designer
 approval or replacement before Steam/Android release.
 
-`characters/neophyte_crowd.png` is a cohesive temporary anonymous
-classmate/neophyte crowd sprite used to support existing `neo` dialogue. It is
-not a new named character or meme-canon addition.
-
-The cohesive temporary backgrounds, duck cameo, and neophyte crowd are generated
-locally by `tools/generate_temp_visual_assets.py`. The MBK sprite is
-user-provided in this checkpoint and remains subject to final designer/licensing
-approval.
+The generated cohesive temporary backgrounds and duck cameo are generated
+locally by `tools/generate_temp_visual_assets.py`. The MBK sprite and neophyte
+classroom background are user-provided in this checkpoint and remain subject to
+final designer/licensing approval.
 
 For broader visual, licensing, and audio direction, see
 `docs/identity_notes.md`.
