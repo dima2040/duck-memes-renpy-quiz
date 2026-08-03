@@ -21,9 +21,10 @@ image mbk_placeholder = "images/characters/mbk_placeholder.png"
 image neophyte_crowd = "images/characters/neophyte_crowd.png"
 
 transform mbk_left:
-    zoom 0.9
+    zoom 1.1
     xalign 0.22
     yalign 1.0
+    yoffset 120
 
 transform neophytes_right:
     xalign 0.88
