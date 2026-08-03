@@ -24,7 +24,7 @@ Sprint 3 добавляет первый playable art/audio/identity pass:
    `C:\Users\Lenovo\Documents\Downloads\renpy-8.5.3-sdk\renpy.exe`
 2. Для проверки этой Codex-ветки откройте `preferences` в Launcher и установите
    `Projects Directory` на:
-   `C:\Users\Lenovo\.codex\worktrees\515d`
+   `C:\Users\Lenovo\.codex\worktrees\2a6e`
 3. В списке проектов выберите `Duck Memes Ren'Py Quiz`
    (папка `fullstack-ren-py-github-cli-gh`).
 4. Нажмите `Launch Project`.
@@ -32,7 +32,7 @@ Sprint 3 добавляет первый playable art/audio/identity pass:
 Альтернативно из PowerShell:
 
 ```powershell
-& "C:\Users\Lenovo\Documents\Downloads\renpy-8.5.3-sdk\renpy.exe" "C:\Users\Lenovo\.codex\worktrees\515d\fullstack-ren-py-github-cli-gh"
+& "C:\Users\Lenovo\Documents\Downloads\renpy-8.5.3-sdk\renpy.exe" "C:\Users\Lenovo\.codex\worktrees\2a6e\fullstack-ren-py-github-cli-gh"
 ```
 
 ## Проверка Sprint 3 / Visual Polish Checkpoint
@@ -55,8 +55,16 @@ Sprint 3 добавляет первый playable art/audio/identity pass:
 Команда для lint:
 
 ```powershell
-& "C:\Users\Lenovo\Documents\Downloads\renpy-8.5.3-sdk\renpy.exe" "C:\Users\Lenovo\.codex\worktrees\515d\fullstack-ren-py-github-cli-gh" lint
+& "C:\Users\Lenovo\Documents\Downloads\renpy-8.5.3-sdk\renpy.exe" "C:\Users\Lenovo\.codex\worktrees\2a6e\fullstack-ren-py-github-cli-gh" lint
 ```
+
+## UI Polish Checkpoint
+
+- Dialogue now uses a classic bottom VN textbox over the scene background.
+- Character names appear in a compact name plate inside the textbox.
+- Quiz answers and final retry/exit menus appear as bottom answer panels on a readable plate.
+- Gameplay/content behavior is unchanged: the 3 rounds x 3 questions, scoring, victory, and game over flow should play as before.
+- Validate at 1280x720 that long answers wrap inside their bottom panels without overlapping other UI.
 
 ## Редактирование Квиз-Контента
 
