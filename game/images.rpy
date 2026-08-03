@@ -22,7 +22,7 @@ image neophyte_crowd = "images/characters/neophyte_crowd.png"
 
 transform mbk_left:
     zoom 1.1
-    xalign 0.22
+    xpos -70
     yalign 1.0
     yoffset 120
 
