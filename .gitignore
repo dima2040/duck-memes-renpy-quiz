@@ -10,5 +10,6 @@ cache/
 # Generated builds and editor artifacts
 builds/
 dist/
+outputs/
 .vscode/
 .idea/
