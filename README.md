@@ -52,8 +52,10 @@ Latest playtest helper:
   рога, серьёзный взгляд, светлая борода/усы, ear tag.
 - Временные фоны и видимые спрайты выполнены в едином спокойном flat/vector-like
   стиле без noisy placeholder labels.
-- `neophyte_crowd.png` используется как анонимная временная группа
-  неофитов/одноклассников, а не как новый named/canon character.
+- `bg_neophyte_classroom.png` используется как user-provided временный фон с
+  неофитами/одноклассниками, а не как новый named/canon character.
+- `bg_school_party.png` используется как user-provided временный финальный фон;
+  отдельный `duck_hero` больше не накладывается поверх этой сцены.
 - `teacher_funny.png` больше не используется как `mbk_placeholder`.
 - Нет ошибок missing image/font/config.
 - Ren'Py lint проходит.
@@ -88,14 +90,17 @@ Latest playtest helper:
 Файлы в `game/images/` остаются placeholder-art.
 
 Sprint 3/visual-polish checkpoint использует `game/images/characters/mbk_placeholder.png` как временный
-asset для `МужикБыкКорова`, основанный на user-provided visual reference:
+user-provided sprite для `МужикБыкКорова`. Визуальное направление также связано с
+local visual reference:
 
 `C:/Users/Lenovo/Pictures/photo_2024-12-08_17-36-04.jpg`
 
 Этот asset не является финальным релизным артом. Перед Steam/Android релизом
 нужно подтвердить стиль, права на использование reference/final asset и
-game-designer approval. Также добавлен `game/images/characters/neophyte_crowd.png`
-как временный anonymous classmate/neophyte sprite, не новый named/canon character.
+game-designer approval. Также добавлен `game/images/bg_neophyte_classroom.png`
+как временный user-provided classmate/neophyte background, не новый named/canon character.
+`game/images/bg_school_party.png` тоже заменён на временный user-provided
+finale/red-carpet background.
 Больше деталей: `docs/identity_notes.md` и
 `game/images/README.md`.
 

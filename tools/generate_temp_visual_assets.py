@@ -223,22 +223,6 @@ def draw_rooftop():
     save(img, IMAGE_DIR / "bg_rooftop.png", BG_SIZE)
 
 
-def draw_party():
-    img, d = background_base("#b7ced2", "#66815f", 486)
-    rect(d, (0, 0, 1280, 486), rgba("#9fb9bf"))
-    rect(d, (130, 300, 1150, 486), rgba(PALETTE["purple"]), rgba(PALETTE["ink"]))
-    polygon(d, [(130, 300), (640, 220), (1150, 300)], rgba(PALETTE["blue_dark"]), rgba(PALETTE["ink"]))
-    rect(d, (465, 350, 815, 486), rgba("#806e99"), rgba(PALETTE["ink"], 160), 3)
-    for x in range(140, 1140, 125):
-        ellipse(d, (x, 120, x + 28, 148), rgba(PALETTE["gold_light"]), rgba(PALETTE["ink"], 90), 2)
-    line(d, [(150, 138), (640, 105), (1130, 138)], rgba(PALETTE["cream"], 160), 3)
-    for x in (250, 330, 410, 870, 950, 1030):
-        ellipse(d, (x, 430, x + 42, 472), rgba(PALETTE["cream"], 190), rgba(PALETTE["ink"], 120), 2)
-        rect(d, (x - 4, 468, x + 46, 486), rgba(PALETTE["blue_dark"], 160))
-    line(d, [(0, 575), (1280, 575)], rgba(PALETTE["paper"], 140), 6)
-    save(img, IMAGE_DIR / "bg_school_party.png", BG_SIZE)
-
-
 def draw_game_over():
     img, d = background_base("#8fa3a8", "#4e5960", 462)
     rect(d, (0, 0, 1280, 462), rgba("#8fa3a8"))
@@ -250,76 +234,6 @@ def draw_game_over():
     line(d, [(230, 530), (1050, 530)], rgba(PALETTE["gold"], 140), 5)
     ellipse(d, (92, 78, 142, 128), rgba(PALETTE["gold_light"], 180))
     save(img, IMAGE_DIR / "bg_game_over.png", BG_SIZE)
-
-
-def draw_mbk():
-    size = (560, 680)
-    img = canvas(size)
-    d = ImageDraw.Draw(img)
-    ink = rgba(PALETTE["ink"])
-    ellipse(d, (128, 625, 432, 675), rgba(PALETTE["shadow"], 70), None, 0)
-    polygon(d, [(168, 426), (392, 426), (462, 680), (98, 680)], rgba(PALETTE["blue_dark"]), ink)
-    polygon(d, [(240, 436), (320, 436), (300, 585), (280, 640), (260, 585)], rgba(PALETTE["cream"]), ink)
-    line(d, [(160, 510), (138, 680)], rgba("#1e3448"), 9)
-    line(d, [(400, 510), (422, 680)], rgba("#1e3448"), 9)
-    polygon(d, [(164, 132), (72, 42), (48, 28), (58, 126), (120, 198)], rgba(PALETTE["cream"]), ink)
-    polygon(d, [(396, 132), (488, 42), (512, 28), (502, 126), (440, 198)], rgba(PALETTE["cream"]), ink)
-    ellipse(d, (100, 186, 192, 286), rgba(PALETTE["cream"]), ink)
-    ellipse(d, (368, 186, 460, 286), rgba(PALETTE["cream"]), ink)
-    ellipse(d, (124, 216, 176, 252), rgba(PALETTE["pink"], 210), None, 0)
-    ellipse(d, (384, 216, 436, 252), rgba(PALETTE["pink"], 210), None, 0)
-    line(d, [(96, 236), (62, 276)], ink, 5)
-    round_rect(d, (38, 274, 78, 340), 6, rgba(PALETTE["gold"]), ink, 4)
-    ellipse(d, (142, 96, 418, 430), rgba("#fff8ed"), ink)
-    polygon(d, [(146, 158), (202, 106), (318, 82), (402, 126), (418, 176), (340, 150), (232, 150)], rgba(PALETTE["gold_light"]), ink)
-    line(d, [(188, 130), (258, 112), (344, 122)], rgba(PALETTE["ink"], 210), 4)
-    line(d, [(205, 152), (284, 139), (360, 153)], rgba(PALETTE["ink"], 190), 4)
-    polygon(d, [(172, 300), (204, 424), (280, 520), (356, 424), (388, 300), (342, 446), (280, 476), (218, 446)], rgba("#e6b55d"), ink)
-    line(d, [(222, 406), (280, 434), (338, 406)], rgba(PALETTE["ink"], 160), 4)
-    line(d, [(230, 452), (280, 474), (330, 452)], rgba(PALETTE["ink"], 150), 4)
-    line(d, [(195, 238), (252, 228)], ink, 8)
-    line(d, [(365, 238), (308, 228)], ink, 8)
-    line(d, [(212, 270), (255, 268), (270, 278)], ink, 4)
-    line(d, [(348, 270), (305, 268), (290, 278)], ink, 4)
-    ellipse(d, (232, 267, 246, 281), rgba(PALETTE["blue_dark"]), None, 0)
-    ellipse(d, (314, 267, 328, 281), rgba(PALETTE["blue_dark"]), None, 0)
-    ellipse(d, (192, 300, 368, 386), rgba(PALETTE["pink"]), ink)
-    ellipse(d, (226, 322, 252, 358), rgba("#161f28"), None, 0)
-    ellipse(d, (308, 322, 334, 358), rgba("#161f28"), None, 0)
-    line(d, [(204, 380), (252, 356), (280, 366)], rgba("#c78c49"), 13)
-    line(d, [(356, 380), (308, 356), (280, 366)], rgba("#c78c49"), 13)
-    line(d, [(218, 397), (250, 410), (280, 404), (310, 410), (342, 397)], ink, 5)
-    round_rect(d, (126, 612, 228, 650), 8, rgba(PALETTE["shadow"]), ink, 3)
-    ellipse(d, (148, 622, 168, 642), rgba(PALETTE["gold"]))
-    save(img, CHARACTER_DIR / "mbk_placeholder.png", size)
-
-
-def draw_neophyte_crowd():
-    size = (540, 430)
-    img = canvas(size)
-    d = ImageDraw.Draw(img)
-    ink = rgba(PALETTE["ink"])
-    ellipse(d, (48, 382, 500, 420), rgba(PALETTE["shadow"], 55), None, 0)
-    desks = [(40, 295, 180, 360), (200, 280, 340, 360), (360, 295, 500, 360)]
-    for desk in desks:
-        round_rect(d, desk, 8, rgba(PALETTE["paper"]), ink, 3)
-    pupils = [
-        (95, 210, PALETTE["teal"]),
-        (230, 180, PALETTE["gold"]),
-        (320, 208, PALETTE["red"]),
-        (420, 190, PALETTE["purple"]),
-    ]
-    for x, y, color in pupils:
-        ellipse(d, (x - 38, y - 38, x + 38, y + 38), rgba("#f5d0aa"), ink, 4)
-        polygon(d, [(x - 56, y + 44), (x + 56, y + 44), (x + 78, y + 132), (x - 78, y + 132)], rgba(color), ink)
-        line(d, [(x - 16, y - 2), (x - 4, y + 2)], ink, 3)
-        line(d, [(x + 16, y - 2), (x + 4, y + 2)], ink, 3)
-        line(d, [(x - 13, y + 22), (x + 13, y + 22)], ink, 3)
-    ellipse(d, (56, 222, 82, 248), rgba(PALETTE["gold_light"]), ink, 3)
-    ellipse(d, (458, 224, 486, 252), rgba(PALETTE["gold_light"]), ink, 3)
-    line(d, [(68, 248), (68, 286)], rgba(PALETTE["gold_light"]), 4)
-    line(d, [(472, 252), (472, 288)], rgba(PALETTE["gold_light"]), 4)
-    save(img, CHARACTER_DIR / "neophyte_crowd.png", size)
 
 
 def draw_duck_hero():
@@ -350,10 +264,11 @@ def main():
     draw_library()
     draw_gym()
     draw_rooftop()
-    draw_party()
     draw_game_over()
-    draw_mbk()
-    draw_neophyte_crowd()
+    # User-provided checkpoint assets are intentionally not regenerated here:
+    # game/images/characters/mbk_placeholder.png,
+    # game/images/bg_neophyte_classroom.png,
+    # game/images/bg_school_party.png.
     draw_duck_hero()
 
 
