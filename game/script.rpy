@@ -167,7 +167,7 @@ label victory:
 label game_over:
     scene bg_neophyte_classroom
     show mbk_placeholder at mbk_left
-    stop music fadeout 1.0
+    play music audio.game_over_melancholy fadeout 1.5 fadein 1.5
 
     $ total_questions = quiz_total_questions()
 
