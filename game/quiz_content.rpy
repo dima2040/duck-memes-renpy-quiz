@@ -6,7 +6,7 @@
 ## approved meme canon.
 
 init python:
-    QUIZ_LEGEND_THRESHOLD = 8
+    QUIZ_LEGEND_THRESHOLD = 7
 
     QUIZ_ROUNDS = [
         {
