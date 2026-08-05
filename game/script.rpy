@@ -11,6 +11,7 @@ label start:
     $ mistakes = 0
     $ round_score = 0
     $ round_total = 0
+    play music audio.school_calm_loop fadein 1.0
 
     scene bg_neophyte_classroom
     show mbk_placeholder at mbk_left
@@ -148,6 +149,8 @@ label finale_check:
 
 
 label victory:
+    play music audio.victory_fanfare fadeout 1.0 fadein 0.25 noloop
+
     mbk "Неофиты притихли. Это редкий школьный звук."
     neo "Получается, смешно не потому что случайно, а потому что правильно попало?"
     mbk "Да. Впервые за день последняя парта отличила шутку от лужи со звуком."
@@ -164,6 +167,7 @@ label victory:
 label game_over:
     scene bg_neophyte_classroom
     show mbk_placeholder at mbk_left
+    stop music fadeout 1.0
 
     $ total_questions = quiz_total_questions()
 

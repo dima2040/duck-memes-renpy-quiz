@@ -8,18 +8,22 @@ define config.name = _("Duck Memes Ren'Py Quiz")
 define config.window_title = _("Duck Memes Ren'Py Quiz")
 define gui.show_name = True
 
-define config.version = "0.4.1-beta1"
+define config.version = "0.4.2-beta1"
 define build.name = "duck_memes_renpy_quiz"
-define build.version = "0.4.1-beta1"
+define build.version = "0.4.2-beta1"
 
-define gui.about = _("""Beta 1 writing polish checkpoint.
+define gui.about = _("""Beta 1 audio polish checkpoint.
 
 Three quiz rounds with short VN interludes remain intact.
-Quiz feedback now explains the meme-code logic more clearly.""")
+Quiz feedback now explains the meme-code logic more clearly.
+Light instrumental music now supports the playthrough and victory ending.""")
 
 define config.has_sound = True
 define config.has_music = True
 define config.has_voice = False
+
+define audio.school_calm_loop = "audio/school_calm_loop.wav"
+define audio.victory_fanfare = "audio/victory_fanfare.wav"
 
 define config.enter_transition = dissolve
 define config.exit_transition = dissolve
