@@ -8,14 +8,14 @@ define config.name = _("Duck Memes Ren'Py Quiz")
 define config.window_title = _("Duck Memes Ren'Py Quiz")
 define gui.show_name = True
 
-define config.version = "0.4.0-sprint3"
+define config.version = "0.4.1-beta1"
 define build.name = "duck_memes_renpy_quiz"
-define build.version = "0.4.0-sprint3"
+define build.version = "0.4.1-beta1"
 
-define gui.about = _("""Sprint 3 art, audio, and identity pass.
+define gui.about = _("""Beta 1 writing polish checkpoint.
 
 Three quiz rounds with short VN interludes remain intact.
-MuzhikBykKorova now has a distinct temporary reference-based placeholder.""")
+Quiz feedback now explains the meme-code logic more clearly.""")
 
 define config.has_sound = True
 define config.has_music = True
