@@ -12,6 +12,8 @@ game is still moving through small playable checkpoints.
 - `bg_school_party.png` is a user-provided temporary finale/red-carpet
   background. It currently includes the visible duck/Poklyaykomen finale visual
   in the background image itself.
+- `main_menu_pokrya.png` is a temporary main-menu background with a black field
+  and large pixel-styled `Покря` title text.
 - `duck_hero.png` is a legacy generated duck/Poklyaykomen visual placeholder,
   kept available but no longer shown in the current finale.
 - `teacher_funny.png` is a legacy generic teacher placeholder.
