@@ -5,4 +5,5 @@ generated for local beta testing.
 - victory_fanfare.wav: short triumphant instrumental cue for the victory ending.
 - perfect_canon_jingle.wav: triumphant chiptune fanfare for the 10/10 canonization ending.
 - game_over_melancholy.wav: soft melancholic instrumental loop for the losing ending.
+- secret_cry_ambience.wav: quiet unsettling ambience with distant synthetic crying for the secret ending.
 - achievement_unlock.wav: short bright chiptune cue for newly unlocked achievements.
