@@ -12,6 +12,7 @@ image bg_gym = "images/bg_gym.png"
 image bg_rooftop = "images/bg_rooftop.png"
 image bg_school_party = "images/bg_school_party.png"
 image bg_game_over = "images/bg_game_over.png"
+image bg_zero_score_classroom = "images/bg_zero_score_classroom.png"
 
 image teacher_funny = "images/teacher_funny.png"
 image duck_hero = "images/duck_hero.png"

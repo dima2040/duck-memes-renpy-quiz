@@ -12,6 +12,8 @@ game is still moving through small playable checkpoints.
 - `bg_school_party.png` is a user-provided temporary finale/red-carpet
   background. It currently includes the visible duck/Poklyaykomen finale visual
   in the background image itself.
+- `bg_zero_score_classroom.png` is a user-provided temporary classroom
+  background used only for the 0/10 comic-tragic ending.
 - `main_menu_pokrya.png` is a temporary main-menu background with a black field
   and large pixel-styled `Покря` title text.
 - `perfect_pokrya_plaque.png` is a temporary pixel-styled perfect-score plaque
