@@ -188,6 +188,7 @@ label finale_check:
 
 label perfect_victory:
     play music audio.perfect_canon_jingle fadeout 1.0 fadein 0.05 noloop
+    $ unlock_achievement("perfect_run")
 
     show perfect_pokrya_plaque at perfect_plaque_top
     with dissolve

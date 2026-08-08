@@ -18,6 +18,9 @@ translate russian strings:
     old "Preferences"
     new "Настройки"
 
+    old "Achievements"
+    new "Достижения"
+
     old "Help"
     new "Помощь"
 
