@@ -349,6 +349,18 @@ def draw_reaction_icons():
     d.rectangle((17, 45, 47, 47), fill=rgba("#f5d87e"))
     save_pixel_icon(canon, UI_DIR / "reaction_canon.png")
 
+    secret = new_icon()
+    d = ImageDraw.Draw(secret)
+    draw_shadow_panel(d, (10, 10, 54, 54), rgba("#5f6871"), ink)
+    d.rectangle((14, 14, 50, 50), outline=rgba("#9aa7b2"), width=1)
+    d.rectangle((24, 19, 40, 24), fill=chalk)
+    d.rectangle((38, 24, 44, 35), fill=chalk)
+    d.rectangle((32, 35, 38, 41), fill=chalk)
+    d.rectangle((29, 41, 35, 45), fill=chalk)
+    d.rectangle((29, 48, 36, 50), fill=chalk)
+    d.rectangle((15, 15, 19, 19), fill=rgba("#c8d0d8"))
+    save_pixel_icon(secret, UI_DIR / "reaction_secret.png")
+
 
 def draw_recognition_plaques():
     def draw_text_centered(d, text, y, font, fill, shadow):

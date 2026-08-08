@@ -27,9 +27,10 @@ game is still moving through small playable checkpoints.
   recognition plaques shown during the 7/10, 8/10, and 9/10 victory endings.
 - `loss_zero_plaque.png` through `loss_six_plaque.png` are temporary
   pixel-styled result plaques shown during the 0/10 through 6/10 endings.
-- `ui/reaction_correct.png`, `ui/reaction_wrong.png`, and
-  `ui/reaction_canon.png` are temporary pixel reaction icons shown after quiz
-  answers, perfect rounds, and the 10/10 ending.
+- `ui/reaction_correct.png`, `ui/reaction_wrong.png`,
+  `ui/reaction_canon.png`, and `ui/reaction_secret.png` are temporary pixel
+  reaction icons shown after quiz answers, perfect rounds, the 10/10 ending, and
+  the secret ending achievement.
 - `duck_hero.png` is a legacy generated duck/Poklyaykomen visual placeholder,
   kept available but no longer shown in the current finale.
 - `teacher_funny.png` is a legacy generic teacher placeholder.

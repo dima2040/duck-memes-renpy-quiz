@@ -89,7 +89,7 @@ init python:
             "title": "Правильный порядок",
             "description": "???",
             "locked_description": "Закрыто. ???",
-            "icon": "reaction_canon_icon",
+            "icon": "reaction_secret_icon",
         },
         {
             "id": "first_run",

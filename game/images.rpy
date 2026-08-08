@@ -19,6 +19,7 @@ image bg_secret_first_last_classroom = "images/bg_secret_first_last_classroom.pn
 image reaction_correct_icon = "images/ui/reaction_correct.png"
 image reaction_wrong_icon = "images/ui/reaction_wrong.png"
 image reaction_canon_icon = "images/ui/reaction_canon.png"
+image reaction_secret_icon = "images/ui/reaction_secret.png"
 
 image teacher_funny = "images/teacher_funny.png"
 image duck_hero = "images/duck_hero.png"
