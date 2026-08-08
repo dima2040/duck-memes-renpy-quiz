@@ -354,9 +354,51 @@ init python:
         },
     ]
 
+    FINAL_QUIZ_QUESTION = {
+        "id": "final_ceremony_q10",
+        "prompt": "Вопрос 10. Остался обрядовый подсчёт. Как честно сделать финальную шкалу «из десяти»?",
+        "answers": [
+            {
+                "text": "Сказать «из десяти» даже после девяти вопросов, потому что звучит кругло",
+                "correct": False,
+                "response": [
+                    ("neo", "Круглое число сразу делает результат взрослее."),
+                    ("mbk", "Круглое не значит честное. Если вопросов девять, десятый нельзя дорисовать голосом."),
+                ],
+            },
+            {
+                "text": "Добавить один балл за уверенное лицо в конце",
+                "correct": False,
+                "response": [
+                    ("neo", "Лицо было очень уверенное. Почти как контрольная без подготовки."),
+                    ("mbk", "Уверенное лицо не является вопросом. Это максимум фон для ошибки."),
+                ],
+            },
+            {
+                "text": "Провести десятый обрядовый вопрос и считать итог из 10",
+                "correct": True,
+                "response": [
+                    ("mbk", "Верно. Шкала стала честной: десять вопросов, десять возможных точек мем-кодекса."),
+                ],
+            },
+            {
+                "text": "Не считать ничего, ведь главное - атмосфера",
+                "correct": False,
+                "response": [
+                    ("neo", "Атмосфера у нас правда есть."),
+                    ("mbk", "Атмосфера помогает сцене, но не заменяет результат. Легенда держит и настроение, и счёт."),
+                ],
+            },
+        ],
+    }
+
 
     def quiz_total_questions():
-        return sum(len(round_data["questions"]) for round_data in QUIZ_ROUNDS)
+        return sum(len(round_data["questions"]) for round_data in QUIZ_ROUNDS) + 1
+
+
+    def quiz_final_question():
+        return FINAL_QUIZ_QUESTION
 
 
     def quiz_round_by_id(round_id):
@@ -406,6 +448,27 @@ init python:
 
                         if not line_text:
                             raise Exception("Quiz question '{}' has an empty response line.".format(question_id))
+
+        final_question_id = FINAL_QUIZ_QUESTION.get("id")
+        final_answers = FINAL_QUIZ_QUESTION.get("answers", [])
+        final_correct_answers = [answer for answer in final_answers if answer.get("correct")]
+
+        if final_question_id in question_ids:
+            raise Exception("Duplicate quiz question id '{}'.".format(final_question_id))
+
+        if len(final_correct_answers) != 1:
+            raise Exception("Quiz question '{}' must have exactly one correct answer.".format(final_question_id))
+
+        for answer in final_answers:
+            if not answer.get("response"):
+                raise Exception("Quiz answer '{}' in question '{}' has no response.".format(answer.get("text"), final_question_id))
+
+            for speaker_id, line_text in answer["response"]:
+                if speaker_id not in known_speakers:
+                    raise Exception("Quiz question '{}' uses unknown speaker '{}'.".format(final_question_id, speaker_id))
+
+                if not line_text:
+                    raise Exception("Quiz question '{}' has an empty response line.".format(final_question_id))
 
         return True
 

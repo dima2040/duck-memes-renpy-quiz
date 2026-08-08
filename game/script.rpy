@@ -131,6 +131,20 @@ label round_3_intro:
 
     call play_quiz_round(quiz_round_by_id("legend_trial"))
 
+    jump final_ceremony_question
+
+
+label final_ceremony_question:
+    scene bg_school_party
+    show mbk_placeholder at mbk_left
+
+    mbk "Три раунда закрыты, но школьная шкала требует ровного десятка."
+    neo "А если мы скажем «восемь из десяти», хотя вопросов было девять, это будет звучать солиднее?"
+    mbk "Будет звучать как математика, которую укусил мем без объяснения."
+    mbk "Поэтому перед финалом остаётся десятый, обрядовый вопрос."
+
+    call play_quiz_question(quiz_final_question())
+
     jump finale_check
 
 
@@ -140,7 +154,7 @@ label finale_check:
 
     $ total_questions = quiz_total_questions()
 
-    mbk "Три раунда закончены. Итог: [score] из [total_questions]."
+    mbk "Три раунда и обрядовый вопрос закончены. Итог: [score] из [total_questions]."
 
     if score >= QUIZ_LEGEND_THRESHOLD:
         jump victory
