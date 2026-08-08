@@ -188,7 +188,7 @@ label finale_check:
 
 label perfect_victory:
     play music audio.perfect_canon_jingle fadeout 1.0 fadein 0.05 noloop
-    $ unlock_achievement("perfect_run")
+    $ unlock_result_achievement(score)
 
     show perfect_pokrya_plaque at perfect_plaque_top
     with dissolve
@@ -215,6 +215,7 @@ label perfect_victory:
 
 label victory:
     play music audio.victory_fanfare fadeout 1.0 fadein 0.25 noloop
+    $ unlock_result_achievement(score)
 
     if score >= 9:
         show recognition_canon_keeper_plaque at recognition_plaque_top
@@ -263,6 +264,7 @@ label game_over:
     play music audio.game_over_melancholy fadeout 1.5 fadein 1.5
 
     $ total_questions = quiz_total_questions()
+    $ unlock_result_achievement(score)
     call show_loss_result_plaque
 
     mbk "Итог: [score] из [total_questions]. Ошибок: [mistakes]."
@@ -283,6 +285,7 @@ label zero_score_ending:
     play music audio.game_over_melancholy fadeout 1.5 fadein 1.5
 
     $ total_questions = quiz_total_questions()
+    $ unlock_result_achievement(score)
     call show_loss_result_plaque
 
     mbk "Итог: [score] из [total_questions]. Это не провал. Это музей провала с экскурсоводом."
