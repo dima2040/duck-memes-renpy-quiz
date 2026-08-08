@@ -215,6 +215,14 @@ label perfect_victory:
 label victory:
     play music audio.victory_fanfare fadeout 1.0 fadein 0.25 noloop
 
+    if score >= 9:
+        show recognition_canon_keeper_plaque at recognition_plaque_top
+    elif score == 8:
+        show recognition_rising_legend_plaque at recognition_plaque_top
+    else:
+        show recognition_code_held_plaque at recognition_plaque_top
+    with dissolve
+
     mbk "Неофиты притихли. Это редкий школьный звук."
     neo "Получается, смешно не потому что случайно, а потому что правильно попало?"
     mbk "Да. Впервые за день последняя парта отличила шутку от лужи со звуком."

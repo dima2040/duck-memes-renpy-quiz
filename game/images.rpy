@@ -22,6 +22,9 @@ image reaction_canon_icon = "images/ui/reaction_canon.png"
 image teacher_funny = "images/teacher_funny.png"
 image duck_hero = "images/duck_hero.png"
 image perfect_pokrya_plaque = "images/perfect_pokrya_plaque.png"
+image recognition_code_held_plaque = "images/recognition_code_held_plaque.png"
+image recognition_rising_legend_plaque = "images/recognition_rising_legend_plaque.png"
+image recognition_canon_keeper_plaque = "images/recognition_canon_keeper_plaque.png"
 
 # Cohesive temporary, user-reference-based stand-in for МужикБыкКорова.
 # It is not final release art and needs approval/replacement in a later art pass.
@@ -41,3 +44,6 @@ transform perfect_plaque_top:
     xalign 0.56
     yalign 0.09
 
+transform recognition_plaque_top:
+    xalign 0.56
+    yalign 0.09

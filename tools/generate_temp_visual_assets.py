@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -11,6 +11,7 @@ UI_DIR = IMAGE_DIR / "ui"
 SCALE = 3
 BG_SIZE = (1280, 720)
 ICON_SIZE = (128, 128)
+PLAQUE_SIZE = (780, 192)
 
 PALETTE = {
     "ink": "#22313d",
@@ -67,6 +68,40 @@ def save_pixel_icon(img, path):
     path.parent.mkdir(parents=True, exist_ok=True)
     img = img.resize(ICON_SIZE, Image.Resampling.NEAREST)
     img.save(path)
+
+
+def find_font_path():
+    candidates = [
+        ROOT / "game" / "DejaVuSans.ttf",
+        Path("C:/Users/Lenovo/Documents/Downloads/renpy-8.5.3-sdk/renpy/common/DejaVuSans-Bold.ttf"),
+        Path("C:/Windows/Fonts/arialbd.ttf"),
+    ]
+
+    for path in candidates:
+        if path.exists():
+            return path
+
+    return None
+
+
+def fit_font(text, max_width, start_size):
+    font_path = find_font_path()
+
+    if font_path is None:
+        return ImageFont.load_default()
+
+    size = start_size
+
+    while size > 8:
+        font = ImageFont.truetype(str(font_path), size=size)
+        bbox = ImageDraw.Draw(Image.new("RGBA", (1, 1))).textbbox((0, 0), text, font=font)
+
+        if bbox[2] - bbox[0] <= max_width:
+            return font
+
+        size -= 1
+
+    return ImageFont.truetype(str(font_path), size=size)
 
 
 def rect(draw, xy, fill, outline=None, width=4):
@@ -315,6 +350,45 @@ def draw_reaction_icons():
     save_pixel_icon(canon, UI_DIR / "reaction_canon.png")
 
 
+def draw_recognition_plaques():
+    def draw_text_centered(d, text, y, font, fill, shadow):
+        bbox = d.textbbox((0, 0), text, font=font)
+        text_width = bbox[2] - bbox[0]
+        x = (PLAQUE_SIZE[0] // 2 - text_width) // 2
+
+        for ox, oy in ((1, 1), (1, 0), (0, 1)):
+            d.text((x + ox, y + oy), text, font=font, fill=shadow)
+
+        d.text((x, y), text, font=font, fill=fill)
+
+    def draw_plaque(filename, top_line, bottom_line):
+        plaque_size = (PLAQUE_SIZE[0] // 2, PLAQUE_SIZE[1] // 2)
+        img = Image.new("RGBA", plaque_size, (0, 0, 0, 0))
+        d = ImageDraw.Draw(img)
+
+        gold = rgba("#f2bf62")
+        cream = rgba("#fff0c8")
+        deep = rgba("#121014")
+        shadow = rgba("#6f4527")
+
+        d.rectangle((18, 0, plaque_size[0] - 1, plaque_size[1] - 12), fill=gold)
+        d.rectangle((4, 5, plaque_size[0] - 6, plaque_size[1] - 10), fill=deep, outline=gold, width=2)
+        d.rectangle((9, 10, plaque_size[0] - 11, plaque_size[1] - 15), outline=cream, width=1)
+
+        top_font = fit_font(top_line, plaque_size[0] - 72, 25)
+        bottom_font = fit_font(bottom_line, plaque_size[0] - 108, 17)
+
+        draw_text_centered(d, top_line, 29, top_font, cream, shadow)
+        draw_text_centered(d, bottom_line, 58, bottom_font, gold, shadow)
+
+        img = img.resize(PLAQUE_SIZE, Image.Resampling.NEAREST)
+        img.save(IMAGE_DIR / filename)
+
+    draw_plaque("recognition_code_held_plaque.png", "МЕМ-КОДЕКС", "УДЕРЖАН")
+    draw_plaque("recognition_rising_legend_plaque.png", "ВОСХОДЯЩАЯ ЛЕГЕНДА", "ЗАФИКСИРОВАНА")
+    draw_plaque("recognition_canon_keeper_plaque.png", "ХРАНИТЕЛЬ КАНОНА", "ПРИЗНАН")
+
+
 def main():
     draw_school()
     draw_school_yard()
@@ -330,6 +404,7 @@ def main():
     # game/images/bg_school_party.png.
     draw_duck_hero()
     draw_reaction_icons()
+    draw_recognition_plaques()
 
 
 if __name__ == "__main__":

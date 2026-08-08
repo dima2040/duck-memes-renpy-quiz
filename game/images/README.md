@@ -20,6 +20,9 @@ game is still moving through small playable checkpoints.
   and large pixel-styled `Покря` title text.
 - `perfect_pokrya_plaque.png` is a temporary pixel-styled perfect-score plaque
   shown only during the 10/10 canonization ending.
+- `recognition_code_held_plaque.png`, `recognition_rising_legend_plaque.png`,
+  and `recognition_canon_keeper_plaque.png` are temporary pixel-styled
+  recognition plaques shown during the 7/10, 8/10, and 9/10 victory endings.
 - `ui/reaction_correct.png`, `ui/reaction_wrong.png`, and
   `ui/reaction_canon.png` are temporary pixel reaction icons shown after quiz
   answers, perfect rounds, and the 10/10 ending.
@@ -44,11 +47,11 @@ stern human-like eyes, blond hair/beard, mustache, glasses, formal teacher
 clothes, and ear tag. It is not final release art and needs game-designer
 approval or replacement before Steam/Android release.
 
-The generated cohesive temporary backgrounds, legacy duck cameo, and pixel
-reaction icons are generated locally by `tools/generate_temp_visual_assets.py`.
-The MBK sprite, neophyte classroom background, and finale/red-carpet background
-are user-provided in this checkpoint and remain subject to final
-designer/licensing approval.
+The generated cohesive temporary backgrounds, legacy duck cameo, pixel reaction
+icons, and recognition plaques are generated locally by
+`tools/generate_temp_visual_assets.py`. The MBK sprite, neophyte classroom
+background, and finale/red-carpet background are user-provided in this checkpoint
+and remain subject to final designer/licensing approval.
 
 For broader visual, licensing, and audio direction, see
 `docs/identity_notes.md`.
