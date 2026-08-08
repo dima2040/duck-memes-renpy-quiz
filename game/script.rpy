@@ -156,10 +156,29 @@ label finale_check:
 
     mbk "Три раунда и обрядовый вопрос закончены. Итог: [score] из [total_questions]."
 
-    if score >= QUIZ_LEGEND_THRESHOLD:
+    if score == total_questions:
+        jump perfect_victory
+    elif score >= QUIZ_LEGEND_THRESHOLD:
         jump victory
     else:
         jump game_over
+
+
+label perfect_victory:
+    play music audio.victory_fanfare fadeout 1.0 fadein 0.25 noloop
+
+    mbk "Десять из десяти. Ни одной трещины в кодексе."
+    neo "То есть это не просто победа? Это когда даже неправильные варианты выглядят как тест на верность?"
+    mbk "Именно. Ты не угадал канон - ты прошёл по нему без шума в подошвах."
+    p "Покляйко Squad фиксирует абсолютный Покря. Последняя парта временно прекращает самодеятельность."
+    neo "Мы записываем? Прямо в тетрадь? Заголовок делать жирным?"
+    mbk "Записывайте. Сегодня школа получила не ответчика, а хранителя мем-кодекса. Легенда утверждена без пересчёта."
+
+    menu:
+        "Пройти ещё раз":
+            jump start
+        "Выйти из игры":
+            return
 
 
 label victory:
