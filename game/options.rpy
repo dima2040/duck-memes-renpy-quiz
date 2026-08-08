@@ -17,6 +17,7 @@ define gui.about = _("""Beta 1 audio polish checkpoint.
 Three quiz rounds with short VN interludes remain intact.
 The score now resolves on a clean 10-question scale with a final ceremonial question.
 Perfect 10/10 runs now get a dedicated canonization ending.
+Zero-score runs now get a dedicated comic-tragic resit ending.
 Quiz feedback now explains the meme-code logic more clearly.
 Light instrumental music now supports the playthrough, victory, and game-over endings.""")
 

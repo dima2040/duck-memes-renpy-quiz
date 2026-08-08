@@ -160,6 +160,8 @@ label finale_check:
         jump perfect_victory
     elif score >= QUIZ_LEGEND_THRESHOLD:
         jump victory
+    elif score == 0:
+        jump zero_score_ending
     else:
         jump game_over
 
@@ -215,6 +217,29 @@ label game_over:
 
     menu:
         "Попробовать снова":
+            jump start
+        "Выйти из игры":
+            return
+
+
+label zero_score_ending:
+    scene bg_neophyte_classroom
+    show mbk_placeholder at mbk_left
+    play music audio.game_over_melancholy fadeout 1.5 fadein 1.5
+
+    $ total_questions = quiz_total_questions()
+
+    mbk "Итог: [score] из [total_questions]. Это не провал. Это музей провала с экскурсоводом."
+    neo "Подождите. Если все ответы были неверные, значит мы можем учить наоборот?"
+    mbk "Нет. Но вы уже начали, поэтому объявляю мем-молчание."
+    neo "То есть мы теперь главные преподаватели неправильных мемов?"
+    mbk "Именно поэтому молчание объявлено срочно."
+    p "Покляйкомэн кладёт плащ на парту. Даже плащ понял, что сейчас лучше не развеваться."
+    mbk "Канон не уничтожен. Он просто отошёл к окну и делает вид, что его не спрашивали."
+    mbk "Игрок отправляется на пересдачу кря-кода. Без позора, но с полным пакетом домашнего Покря."
+
+    menu:
+        "Пересдать кря-код":
             jump start
         "Выйти из игры":
             return
