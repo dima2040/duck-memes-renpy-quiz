@@ -223,7 +223,7 @@ label game_over:
 
 
 label zero_score_ending:
-    scene bg_neophyte_classroom
+    scene bg_zero_score_failure
     show mbk_placeholder at mbk_left
     play music audio.game_over_melancholy fadeout 1.5 fadein 1.5
 
