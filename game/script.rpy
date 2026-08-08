@@ -127,7 +127,7 @@ label round_3_intro:
 
     mbk "Раунд 3: «Испытание легенды»."
     mbk "Теперь ты не просто выбираешь вариант. Ты возвращаешь каждое слово на место, пока класс продаёт шум как озарение."
-    neo "Мы уже сделали вывеску «Озарение»."
+    neo "Мы уже назвали обычный шум «озарением» и почти поверили."
 
     call play_quiz_round(quiz_round_by_id("legend_trial"))
 
@@ -165,7 +165,11 @@ label finale_check:
 
 
 label perfect_victory:
-    play music audio.victory_fanfare fadeout 1.0 fadein 0.25 noloop
+    play music audio.perfect_canon_jingle fadeout 1.0 fadein 0.05 noloop
+    queue music audio.victory_fanfare noloop
+
+    show perfect_pokrya_plaque at perfect_plaque_top
+    with dissolve
 
     mbk "Десять из десяти. Ни одной трещины в кодексе."
     neo "То есть это не просто победа? Это когда даже неправильные варианты выглядят как тест на верность?"
@@ -173,6 +177,7 @@ label perfect_victory:
     p "Покляйко Squad фиксирует абсолютный Покря. Последняя парта временно прекращает самодеятельность."
     neo "Мы записываем? Прямо в тетрадь? Заголовок делать жирным?"
     mbk "Записывайте. Сегодня школа получила не ответчика, а хранителя мем-кодекса. Легенда утверждена без пересчёта."
+    mbk "Даже я временно снимаю режим сурового молчания. На одну перемену."
 
     menu:
         "Пройти ещё раз":

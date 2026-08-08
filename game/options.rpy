@@ -16,6 +16,7 @@ define gui.about = _("""Beta 1 audio polish checkpoint.
 
 Three quiz rounds with short VN interludes remain intact.
 The score now resolves on a clean 10-question scale with a final ceremonial question.
+Perfect 10/10 runs now get a dedicated canonization ending.
 Quiz feedback now explains the meme-code logic more clearly.
 Light instrumental music now supports the playthrough, victory, and game-over endings.""")
 
@@ -25,6 +26,7 @@ define config.has_voice = False
 
 define audio.school_calm_loop = "audio/school_calm_loop.wav"
 define audio.victory_fanfare = "audio/victory_fanfare.wav"
+define audio.perfect_canon_jingle = "audio/perfect_canon_jingle.wav"
 define audio.game_over_melancholy = "audio/game_over_melancholy.wav"
 
 define config.enter_transition = dissolve

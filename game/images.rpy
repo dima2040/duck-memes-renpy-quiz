@@ -15,6 +15,7 @@ image bg_game_over = "images/bg_game_over.png"
 
 image teacher_funny = "images/teacher_funny.png"
 image duck_hero = "images/duck_hero.png"
+image perfect_pokrya_plaque = "images/perfect_pokrya_plaque.png"
 
 # Cohesive temporary, user-reference-based stand-in for МужикБыкКорова.
 # It is not final release art and needs approval/replacement in a later art pass.
@@ -29,4 +30,8 @@ transform mbk_left:
 transform duck_right:
     xalign 0.92
     yalign 1.0
+
+transform perfect_plaque_top:
+    xalign 0.56
+    yalign 0.09
 

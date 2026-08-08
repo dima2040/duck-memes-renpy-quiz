@@ -14,6 +14,8 @@ game is still moving through small playable checkpoints.
   in the background image itself.
 - `main_menu_pokrya.png` is a temporary main-menu background with a black field
   and large pixel-styled `Покря` title text.
+- `perfect_pokrya_plaque.png` is a temporary pixel-styled perfect-score plaque
+  shown only during the 10/10 canonization ending.
 - `duck_hero.png` is a legacy generated duck/Poklyaykomen visual placeholder,
   kept available but no longer shown in the current finale.
 - `teacher_funny.png` is a legacy generic teacher placeholder.
