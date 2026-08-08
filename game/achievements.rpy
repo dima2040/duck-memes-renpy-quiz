@@ -93,7 +93,7 @@ screen achievements():
                         yalign 0.5
 
                         add achievement["icon"]:
-                            alpha 1.0 if unlocked else 0.28
+                            alpha (1.0 if unlocked else 0.28)
                             xysize (96, 96)
 
                         vbox:
