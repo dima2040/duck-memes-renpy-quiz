@@ -2,6 +2,9 @@
 ## Achievements.
 ################################################################################
 
+default achievement_toast_queue = []
+default achievement_toast_visible = False
+
 init python:
     ACHIEVEMENTS = (
         {
@@ -81,6 +84,34 @@ init python:
             "locked_description": "Закрыто. Где-то в школе ещё ждёт идеальный 10/10.",
             "icon": "reaction_canon_icon",
         },
+        {
+            "id": "first_run",
+            "title": "Первый заход",
+            "description": "Заверши своё первое полное прохождение.",
+            "locked_description": "Закрыто. Первый полный заход ещё ждёт звонка на урок.",
+            "icon": "reaction_correct_icon",
+        },
+        {
+            "id": "resit_accepted",
+            "title": "Пересдача принята",
+            "description": "Заверши игру второй раз.",
+            "locked_description": "Закрыто. Пересдача ещё не занесена в школьный журнал.",
+            "icon": "reaction_correct_icon",
+        },
+        {
+            "id": "perfect_round",
+            "title": "Ни одной трещины в раунде",
+            "description": "Закрой любой основной раунд на 3/3.",
+            "locked_description": "Закрыто. Идеальный раунд ещё не выдержал проверку мелом.",
+            "icon": "reaction_canon_icon",
+        },
+        {
+            "id": "three_canon_seals",
+            "title": "Три печати канона",
+            "description": "Закрой все три основных раунда на 3/3 за одно прохождение.",
+            "locked_description": "Закрыто. Три раунда ещё не поставили печати подряд.",
+            "icon": "reaction_canon_icon",
+        },
     )
     RESULT_ACHIEVEMENT_IDS = {
         0: "result_0",
@@ -119,6 +150,43 @@ init python:
     def unlocked_achievement_count():
         return sum(1 for achievement in ACHIEVEMENTS if achievement_unlocked(achievement["id"]))
 
+    def ensure_achievement_stats():
+        if (
+            not hasattr(persistent, "achievement_stats")
+            or persistent.achievement_stats is None
+            or not isinstance(persistent.achievement_stats, dict)
+        ):
+            persistent.achievement_stats = {}
+
+        stats = persistent.achievement_stats
+        stats.setdefault("completed_playthroughs", 0)
+        return stats
+
+    def queue_achievement_toast(achievement):
+        global achievement_toast_queue
+
+        achievement_toast_queue.append(achievement)
+        show_next_achievement_toast()
+
+    def show_next_achievement_toast():
+        global achievement_toast_queue
+        global achievement_toast_visible
+
+        if achievement_toast_visible or not achievement_toast_queue:
+            return
+
+        achievement_toast_visible = True
+        achievement = achievement_toast_queue.pop(0)
+        renpy.sound.play("audio/achievement_unlock.wav")
+        renpy.show_screen("achievement_toast", achievement=achievement)
+
+    def finish_achievement_toast():
+        global achievement_toast_visible
+
+        renpy.hide_screen("achievement_toast")
+        achievement_toast_visible = False
+        show_next_achievement_toast()
+
     def unlock_achievement(achievement_id):
         achievements = ensure_achievements()
 
@@ -130,8 +198,7 @@ init python:
 
         achievement = achievement_by_id(achievement_id)
         if achievement is not None:
-            renpy.sound.play("audio/achievement_unlock.wav")
-            renpy.show_screen("achievement_toast", achievement=achievement)
+            queue_achievement_toast(achievement)
 
         return True
 
@@ -142,6 +209,23 @@ init python:
             return False
 
         return unlock_achievement(achievement_id)
+
+    def unlock_completion_achievements():
+        stats = ensure_achievement_stats()
+        stats["completed_playthroughs"] = int(stats.get("completed_playthroughs", 0)) + 1
+        renpy.save_persistent()
+
+        completed_playthroughs = stats["completed_playthroughs"]
+
+        if completed_playthroughs >= 1:
+            unlock_achievement("first_run")
+
+        if completed_playthroughs >= 2:
+            unlock_achievement("resit_accepted")
+
+    def unlock_final_achievements(final_score):
+        unlock_result_achievement(final_score)
+        unlock_completion_achievements()
 
 
 label achievements_screen:
@@ -209,7 +293,7 @@ screen achievements():
 screen achievement_toast(achievement):
     zorder 300
 
-    timer 3.4 action Hide("achievement_toast")
+    timer 3.4 action Function(finish_achievement_toast)
 
     frame:
         at achievement_toast_slide

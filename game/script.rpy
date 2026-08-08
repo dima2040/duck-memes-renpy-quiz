@@ -11,6 +11,7 @@ label start:
     $ mistakes = 0
     $ round_score = 0
     $ round_total = 0
+    $ perfect_main_rounds = 0
     play music audio.school_calm_loop fadein 1.0
 
     scene bg_neophyte_classroom
@@ -76,6 +77,17 @@ label show_round_canon_reaction:
     return
 
 
+label record_round_achievements:
+    if round_total > 0 and round_score == round_total:
+        $ perfect_main_rounds += 1
+        $ unlock_achievement("perfect_round")
+
+        if perfect_main_rounds == 3:
+            $ unlock_achievement("three_canon_seals")
+
+    return
+
+
 label play_quiz_round(round_data):
     $ round_score = 0
     $ round_total = len(round_data["questions"])
@@ -87,6 +99,7 @@ label play_quiz_round(round_data):
         $ question_index += 1
 
     call show_round_canon_reaction
+    call record_round_achievements
 
     return
 
@@ -188,7 +201,7 @@ label finale_check:
 
 label perfect_victory:
     play music audio.perfect_canon_jingle fadeout 1.0 fadein 0.05 noloop
-    $ unlock_result_achievement(score)
+    $ unlock_final_achievements(score)
 
     show perfect_pokrya_plaque at perfect_plaque_top
     with dissolve
@@ -215,7 +228,7 @@ label perfect_victory:
 
 label victory:
     play music audio.victory_fanfare fadeout 1.0 fadein 0.25 noloop
-    $ unlock_result_achievement(score)
+    $ unlock_final_achievements(score)
 
     if score >= 9:
         show recognition_canon_keeper_plaque at recognition_plaque_top
@@ -264,7 +277,7 @@ label game_over:
     play music audio.game_over_melancholy fadeout 1.5 fadein 1.5
 
     $ total_questions = quiz_total_questions()
-    $ unlock_result_achievement(score)
+    $ unlock_final_achievements(score)
     call show_loss_result_plaque
 
     mbk "Итог: [score] из [total_questions]. Ошибок: [mistakes]."
@@ -285,7 +298,7 @@ label zero_score_ending:
     play music audio.game_over_melancholy fadeout 1.5 fadein 1.5
 
     $ total_questions = quiz_total_questions()
-    $ unlock_result_achievement(score)
+    $ unlock_final_achievements(score)
     call show_loss_result_plaque
 
     mbk "Итог: [score] из [total_questions]. Это не провал. Это музей провала с экскурсоводом."
