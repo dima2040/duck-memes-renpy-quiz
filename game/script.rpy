@@ -48,12 +48,30 @@ label play_quiz_question(question_data):
     else:
         $ mistakes += 1
 
+    $ reaction_image = "reaction_correct_icon" if selected_answer["correct"] else "reaction_doubt_icon"
+    show screen quiz_reaction_stamp(reaction_image)
+    with dissolve
+
     $ response_line_index = 0
 
     while response_line_index < len(selected_answer["response"]):
         $ speaker_id, line_text = selected_answer["response"][response_line_index]
         call say_quiz_line(speaker_id, line_text)
         $ response_line_index += 1
+
+    hide screen quiz_reaction_stamp
+    with dissolve
+
+    return
+
+
+label show_round_canon_reaction:
+    if round_total > 0 and round_score == round_total:
+        show screen quiz_reaction_stamp("reaction_canon_icon")
+        with dissolve
+        pause 0.65
+        hide screen quiz_reaction_stamp
+        with dissolve
 
     return
 
@@ -67,6 +85,8 @@ label play_quiz_round(round_data):
         $ question_data = round_data["questions"][question_index]
         call play_quiz_question(question_data)
         $ question_index += 1
+
+    call show_round_canon_reaction
 
     return
 
@@ -171,6 +191,8 @@ label perfect_victory:
 
     show perfect_pokrya_plaque at perfect_plaque_top
     with dissolve
+    show screen quiz_reaction_stamp("reaction_canon_icon")
+    with dissolve
 
     mbk "Десять из десяти. Ни одной трещины в кодексе."
     neo "То есть это не просто победа? Это когда даже неправильные варианты выглядят как тест на верность?"
@@ -179,6 +201,9 @@ label perfect_victory:
     neo "Мы записываем? Прямо в тетрадь? Заголовок делать жирным?"
     mbk "Записывайте. Сегодня школа получила не ответчика, а хранителя мем-кодекса. Легенда утверждена без пересчёта."
     mbk "Даже я временно снимаю режим сурового молчания. На одну перемену."
+
+    hide screen quiz_reaction_stamp
+    with dissolve
 
     menu:
         "Пройти ещё раз":

@@ -15,6 +15,10 @@ image bg_game_over = "images/bg_game_over.png"
 image bg_zero_score_classroom = "images/bg_zero_score_classroom.png"
 image bg_zero_score_failure = "images/bg_zero_score_failure.png"
 
+image reaction_correct_icon = "images/ui/reaction_correct.png"
+image reaction_doubt_icon = "images/ui/reaction_doubt.png"
+image reaction_canon_icon = "images/ui/reaction_canon.png"
+
 image teacher_funny = "images/teacher_funny.png"
 image duck_hero = "images/duck_hero.png"
 image perfect_pokrya_plaque = "images/perfect_pokrya_plaque.png"

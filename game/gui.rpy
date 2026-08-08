@@ -83,6 +83,21 @@ screen choice(items):
                 textbutton i.caption action i.action
 
 
+screen quiz_reaction_stamp(reaction_image):
+    zorder 95
+
+    add reaction_image:
+        at quiz_reaction_stamp_pop
+        xpos 1008
+        ypos 356
+
+
+transform quiz_reaction_stamp_pop:
+    alpha 0.0
+    zoom 0.86
+    easeout 0.12 alpha 1.0 zoom 1.0
+
+
 style say_window is default
 style say_namebox is default
 style say_label is default

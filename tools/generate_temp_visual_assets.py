@@ -6,9 +6,11 @@ from PIL import Image, ImageDraw
 ROOT = Path(__file__).resolve().parents[1]
 IMAGE_DIR = ROOT / "game" / "images"
 CHARACTER_DIR = IMAGE_DIR / "characters"
+UI_DIR = IMAGE_DIR / "ui"
 
 SCALE = 3
 BG_SIZE = (1280, 720)
+ICON_SIZE = (128, 128)
 
 PALETTE = {
     "ink": "#22313d",
@@ -58,6 +60,12 @@ def canvas(size, fill=(0, 0, 0, 0)):
 def save(img, path, size):
     path.parent.mkdir(parents=True, exist_ok=True)
     img = img.resize(size, Image.Resampling.LANCZOS)
+    img.save(path)
+
+
+def save_pixel_icon(img, path):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    img = img.resize(ICON_SIZE, Image.Resampling.NEAREST)
     img.save(path)
 
 
@@ -256,6 +264,61 @@ def draw_duck_hero():
     save(img, IMAGE_DIR / "duck_hero.png", size)
 
 
+def draw_reaction_icons():
+    def new_icon():
+        return Image.new("RGBA", (64, 64), (0, 0, 0, 0))
+
+    def draw_shadow_panel(d, xy, fill, outline, shadow=(0, 0, 0, 90)):
+        x0, y0, x1, y1 = xy
+        d.rectangle((x0 + 3, y0 + 4, x1 + 3, y1 + 4), fill=shadow)
+        d.rectangle(xy, fill=fill, outline=outline, width=2)
+
+    ink = rgba(PALETTE["ink"])
+    chalk = rgba("#f9fff0")
+    gold = rgba(PALETTE["gold_light"])
+
+    correct = new_icon()
+    d = ImageDraw.Draw(correct)
+    draw_shadow_panel(d, (7, 13, 57, 51), rgba("#335f46"), ink)
+    d.rectangle((11, 17, 53, 47), outline=rgba("#7fbf83"), width=1)
+    d.rectangle((12, 47, 52, 49), fill=rgba("#d8c890"))
+    d.line([(18, 33), (27, 42), (46, 21)], fill=chalk, width=5)
+    d.rectangle((49, 15, 52, 18), fill=gold)
+    d.rectangle((53, 19, 56, 22), fill=gold)
+    d.rectangle((13, 19, 16, 22), fill=rgba("#c8f7c5"))
+    save_pixel_icon(correct, UI_DIR / "reaction_correct.png")
+
+    doubt = new_icon()
+    d = ImageDraw.Draw(doubt)
+    draw_shadow_panel(d, (8, 10, 55, 47), rgba("#f0c752"), ink)
+    d.rectangle((18, 47, 29, 56), fill=rgba("#f0c752"), outline=ink, width=2)
+    d.rectangle((15, 18, 25, 28), fill=rgba("#5a4322"))
+    d.rectangle((18, 21, 22, 25), fill=rgba("#fff6d4"))
+    d.rectangle((31, 18, 43, 22), fill=ink)
+    d.rectangle((42, 22, 47, 31), fill=ink)
+    d.rectangle((37, 31, 43, 37), fill=ink)
+    d.rectangle((33, 37, 39, 42), fill=ink)
+    d.rectangle((34, 47, 40, 53), fill=ink)
+    d.rectangle((12, 13, 51, 15), fill=rgba("#fff0a6"))
+    save_pixel_icon(doubt, UI_DIR / "reaction_doubt.png")
+
+    canon = new_icon()
+    d = ImageDraw.Draw(canon)
+    draw_shadow_panel(d, (9, 12, 55, 52), rgba("#9d302d"), ink)
+    d.rectangle((13, 16, 51, 48), outline=rgba(PALETTE["gold"]), width=2)
+    d.polygon([(18, 12), (24, 4), (27, 12)], fill=rgba("#cfbc94"), outline=ink)
+    d.polygon([(40, 12), (45, 4), (48, 12)], fill=rgba("#cfbc94"), outline=ink)
+    d.rectangle((21, 23, 26, 43), fill=gold)
+    d.rectangle((27, 31, 32, 36), fill=gold)
+    d.rectangle((32, 27, 37, 32), fill=gold)
+    d.rectangle((37, 23, 43, 28), fill=gold)
+    d.rectangle((32, 36, 37, 41), fill=gold)
+    d.rectangle((37, 41, 44, 46), fill=gold)
+    d.rectangle((17, 19, 47, 21), fill=rgba("#f5d87e"))
+    d.rectangle((17, 45, 47, 47), fill=rgba("#f5d87e"))
+    save_pixel_icon(canon, UI_DIR / "reaction_canon.png")
+
+
 def main():
     draw_school()
     draw_school_yard()
@@ -270,6 +333,7 @@ def main():
     # game/images/bg_neophyte_classroom.png,
     # game/images/bg_school_party.png.
     draw_duck_hero()
+    draw_reaction_icons()
 
 
 if __name__ == "__main__":
