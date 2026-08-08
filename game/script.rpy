@@ -12,6 +12,8 @@ label start:
     $ round_score = 0
     $ round_total = 0
     $ perfect_main_rounds = 0
+    $ current_question_number = 0
+    $ correct_question_numbers = []
     play music audio.school_calm_loop fadein 1.0
 
     scene bg_neophyte_classroom
@@ -40,12 +42,14 @@ label say_quiz_line(speaker_id, line_text):
 
 
 label play_quiz_question(question_data):
+    $ current_question_number += 1
     $ mbk(question_data["prompt"])
     $ selected_answer = renpy.display_menu([(answer["text"], answer) for answer in question_data["answers"]])
 
     if selected_answer["correct"]:
         $ score += 1
         $ round_score += 1
+        $ correct_question_numbers.append(current_question_number)
     else:
         $ mistakes += 1
 
@@ -187,6 +191,9 @@ label finale_check:
 
     $ total_questions = quiz_total_questions()
 
+    if correct_question_numbers == [1, total_questions]:
+        jump secret_first_last_ending
+
     mbk "Три раунда и обрядовый вопрос закончены. Итог: [score] из [total_questions]."
 
     if score == total_questions:
@@ -197,6 +204,19 @@ label finale_check:
         jump zero_score_ending
     else:
         jump game_over
+
+
+label secret_first_last_ending:
+    play music audio.game_over_melancholy fadeout 1.5 fadein 1.5
+    $ unlock_final_achievements(score)
+
+    mbk "???"
+
+    menu:
+        "Попробовать снова":
+            jump start
+        "Выйти из игры":
+            return
 
 
 label perfect_victory:
