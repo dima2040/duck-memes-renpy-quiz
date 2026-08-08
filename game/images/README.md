@@ -16,6 +16,8 @@ game is still moving through small playable checkpoints.
   background used for the ordinary 1-6/10 losing ending.
 - `bg_zero_score_failure.png` is a user-provided temporary cold classroom
   background used only for the full 0/10 losing ending.
+- `bg_secret_first_last_classroom.png` is a user-provided temporary dark
+  classroom background used only for the secret first-and-last-answer ending.
 - `main_menu_pokrya.png` is a temporary main-menu background with a black field
   and large pixel-styled `Покря` title text.
 - `perfect_pokrya_plaque.png` is a temporary pixel-styled perfect-score plaque

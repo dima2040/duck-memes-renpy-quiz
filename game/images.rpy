@@ -14,6 +14,7 @@ image bg_school_party = "images/bg_school_party.png"
 image bg_game_over = "images/bg_game_over.png"
 image bg_zero_score_classroom = "images/bg_zero_score_classroom.png"
 image bg_zero_score_failure = "images/bg_zero_score_failure.png"
+image bg_secret_first_last_classroom = "images/bg_secret_first_last_classroom.png"
 
 image reaction_correct_icon = "images/ui/reaction_correct.png"
 image reaction_wrong_icon = "images/ui/reaction_wrong.png"
