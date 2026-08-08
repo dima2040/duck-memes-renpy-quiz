@@ -130,7 +130,8 @@ init python:
 
         achievement = achievement_by_id(achievement_id)
         if achievement is not None:
-            renpy.notify("Достижение открыто: {}".format(achievement["title"]))
+            renpy.sound.play("audio/achievement_unlock.wav")
+            renpy.show_screen("achievement_toast", achievement=achievement)
 
         return True
 
@@ -205,6 +206,39 @@ screen achievements():
     key "game_menu" action Return()
 
 
+screen achievement_toast(achievement):
+    zorder 300
+
+    timer 3.4 action Hide("achievement_toast")
+
+    frame:
+        at achievement_toast_slide
+        style "achievement_toast_panel"
+
+        hbox:
+            spacing 16
+            yalign 0.5
+
+            add achievement["icon"]:
+                xysize (64, 64)
+
+            vbox:
+                spacing 3
+                yalign 0.5
+
+                text "Достижение открыто" style "achievement_toast_label"
+                text achievement["title"] style "achievement_toast_title"
+
+
+transform achievement_toast_slide:
+    xalign 0.5
+    ypos -120
+    alpha 0.0
+    easeout 0.2 ypos 24 alpha 1.0
+    pause 2.8
+    easein 0.22 ypos -120 alpha 0.0
+
+
 style achievements_panel is default
 style achievements_title is default
 style achievements_counter is default
@@ -213,6 +247,9 @@ style achievements_back_button_text is button_text
 style achievement_entry is default
 style achievement_title is default
 style achievement_description is default
+style achievement_toast_panel is default
+style achievement_toast_label is default
+style achievement_toast_title is default
 
 style achievements_panel:
     xalign 0.5
@@ -260,3 +297,20 @@ style achievement_description:
     size 23
     line_spacing 2
     outlines [(1, "#00000099", 0, 1)]
+
+style achievement_toast_panel:
+    xsize 560
+    background Solid("#121923f4")
+    padding (18, 14, 22, 14)
+
+style achievement_toast_label:
+    color "#f4bf66"
+    size 21
+    bold True
+    outlines [(1, "#000000aa", 0, 1)]
+
+style achievement_toast_title:
+    color "#fff0c8"
+    size 29
+    bold True
+    outlines [(1, "#000000aa", 0, 1)]

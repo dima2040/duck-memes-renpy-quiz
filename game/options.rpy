@@ -29,6 +29,7 @@ define audio.school_calm_loop = "audio/school_calm_loop.wav"
 define audio.victory_fanfare = "audio/victory_fanfare.wav"
 define audio.perfect_canon_jingle = "audio/perfect_canon_jingle.wav"
 define audio.game_over_melancholy = "audio/game_over_melancholy.wav"
+define audio.achievement_unlock = "audio/achievement_unlock.wav"
 
 define config.enter_transition = dissolve
 define config.exit_transition = dissolve
