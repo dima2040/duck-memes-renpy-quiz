@@ -25,6 +25,13 @@ image perfect_pokrya_plaque = "images/perfect_pokrya_plaque.png"
 image recognition_code_held_plaque = "images/recognition_code_held_plaque.png"
 image recognition_rising_legend_plaque = "images/recognition_rising_legend_plaque.png"
 image recognition_canon_keeper_plaque = "images/recognition_canon_keeper_plaque.png"
+image loss_zero_plaque = "images/loss_zero_plaque.png"
+image loss_one_plaque = "images/loss_one_plaque.png"
+image loss_two_plaque = "images/loss_two_plaque.png"
+image loss_three_plaque = "images/loss_three_plaque.png"
+image loss_four_plaque = "images/loss_four_plaque.png"
+image loss_five_plaque = "images/loss_five_plaque.png"
+image loss_six_plaque = "images/loss_six_plaque.png"
 
 # Cohesive temporary, user-reference-based stand-in for МужикБыкКорова.
 # It is not final release art and needs approval/replacement in a later art pass.
@@ -45,5 +52,9 @@ transform perfect_plaque_top:
     yalign 0.09
 
 transform recognition_plaque_top:
+    xalign 0.56
+    yalign 0.09
+
+transform loss_plaque_top:
     xalign 0.56
     yalign 0.09

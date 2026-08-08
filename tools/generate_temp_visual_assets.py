@@ -387,6 +387,13 @@ def draw_recognition_plaques():
     draw_plaque("recognition_code_held_plaque.png", "МЕМ-КОДЕКС", "УДЕРЖАН")
     draw_plaque("recognition_rising_legend_plaque.png", "ВОСХОДЯЩАЯ ЛЕГЕНДА", "ЗАФИКСИРОВАНА")
     draw_plaque("recognition_canon_keeper_plaque.png", "ХРАНИТЕЛЬ КАНОНА", "ПРИЗНАН")
+    draw_plaque("loss_zero_plaque.png", "МУЗЕЙ ПРОВАЛА", "ОТКРЫТ")
+    draw_plaque("loss_one_plaque.png", "ИСКРА СМЫСЛА", "ЗАМЕЧЕНА")
+    draw_plaque("loss_two_plaque.png", "ШУМ ОПОЗНАН", "ЧАСТИЧНО")
+    draw_plaque("loss_three_plaque.png", "БАЗА ШЕВЕЛИТСЯ", "НО СПИТ")
+    draw_plaque("loss_four_plaque.png", "КОДЕКС СКРИПИТ", "НО ЖИВ")
+    draw_plaque("loss_five_plaque.png", "ПОЛОВИНА КАНОНА", "СПАСЕНА")
+    draw_plaque("loss_six_plaque.png", "ЛЕГЕНДА БЛИЗКО", "ПЕРЕСДАЧА ЖДЕТ")
 
 
 def main():

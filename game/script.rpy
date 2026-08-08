@@ -236,12 +236,33 @@ label victory:
             return
 
 
+label show_loss_result_plaque:
+    if score == 0:
+        show loss_zero_plaque at loss_plaque_top
+    elif score == 1:
+        show loss_one_plaque at loss_plaque_top
+    elif score == 2:
+        show loss_two_plaque at loss_plaque_top
+    elif score == 3:
+        show loss_three_plaque at loss_plaque_top
+    elif score == 4:
+        show loss_four_plaque at loss_plaque_top
+    elif score == 5:
+        show loss_five_plaque at loss_plaque_top
+    else:
+        show loss_six_plaque at loss_plaque_top
+    with dissolve
+
+    return
+
+
 label game_over:
     scene bg_zero_score_classroom
     show mbk_placeholder at mbk_left
     play music audio.game_over_melancholy fadeout 1.5 fadein 1.5
 
     $ total_questions = quiz_total_questions()
+    call show_loss_result_plaque
 
     mbk "Итог: [score] из [total_questions]. Ошибок: [mistakes]."
     mbk "Канон не рухнул, но шум пока слишком ловко маскируется под понимание."
@@ -261,6 +282,7 @@ label zero_score_ending:
     play music audio.game_over_melancholy fadeout 1.5 fadein 1.5
 
     $ total_questions = quiz_total_questions()
+    call show_loss_result_plaque
 
     mbk "Итог: [score] из [total_questions]. Это не провал. Это музей провала с экскурсоводом."
     neo "Подождите. Если все ответы были неверные, значит мы можем учить наоборот?"
