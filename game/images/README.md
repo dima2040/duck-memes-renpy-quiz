@@ -20,7 +20,7 @@ game is still moving through small playable checkpoints.
   and large pixel-styled `Покря` title text.
 - `perfect_pokrya_plaque.png` is a temporary pixel-styled perfect-score plaque
   shown only during the 10/10 canonization ending.
-- `ui/reaction_correct.png`, `ui/reaction_doubt.png`, and
+- `ui/reaction_correct.png`, `ui/reaction_wrong.png`, and
   `ui/reaction_canon.png` are temporary pixel reaction icons shown after quiz
   answers, perfect rounds, and the 10/10 ending.
 - `duck_hero.png` is a legacy generated duck/Poklyaykomen visual placeholder,

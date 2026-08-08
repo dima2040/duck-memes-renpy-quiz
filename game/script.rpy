@@ -48,7 +48,7 @@ label play_quiz_question(question_data):
     else:
         $ mistakes += 1
 
-    $ reaction_image = "reaction_correct_icon" if selected_answer["correct"] else "reaction_doubt_icon"
+    $ reaction_image = "reaction_correct_icon" if selected_answer["correct"] else "reaction_wrong_icon"
     show screen quiz_reaction_stamp(reaction_image)
     with dissolve
 

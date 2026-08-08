@@ -88,8 +88,8 @@ screen quiz_reaction_stamp(reaction_image):
 
     add reaction_image:
         at quiz_reaction_stamp_pop
-        xpos 1008
-        ypos 356
+        xpos 92
+        ypos 374
 
 
 transform quiz_reaction_stamp_pop:
