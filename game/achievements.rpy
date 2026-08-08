@@ -85,6 +85,13 @@ init python:
             "icon": "reaction_canon_icon",
         },
         {
+            "id": "correct_order",
+            "title": "Правильный порядок",
+            "description": "???",
+            "locked_description": "Закрыто. ???",
+            "icon": "reaction_canon_icon",
+        },
+        {
             "id": "first_run",
             "title": "Первый заход",
             "description": "Заверши своё первое полное прохождение.",
@@ -225,6 +232,10 @@ init python:
 
     def unlock_final_achievements(final_score):
         unlock_result_achievement(final_score)
+        unlock_completion_achievements()
+
+    def unlock_secret_first_last_achievements():
+        unlock_achievement("correct_order")
         unlock_completion_achievements()
 
 

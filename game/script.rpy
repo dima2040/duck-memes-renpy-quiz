@@ -210,7 +210,7 @@ label secret_first_last_ending:
     scene bg_secret_first_last_classroom
     show mbk_placeholder at mbk_left
     play music audio.game_over_melancholy fadeout 1.5 fadein 1.5
-    $ unlock_final_achievements(score)
+    $ unlock_secret_first_last_achievements()
 
     mbk "???"
 
