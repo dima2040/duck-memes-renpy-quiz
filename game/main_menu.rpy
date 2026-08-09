@@ -12,6 +12,12 @@ init python:
         )
 
     style.mm_root.background = Image("images/main_menu_pokrya.png")
+    style.mm_button.insensitive_background = Solid("#05070ed8")
+    style.mm_button.insensitive_foreground = Solid("#00000055")
+    style.mm_button.insensitive_xoffset = 0
+    style.mm_button_text.insensitive_color = "#5b6570"
+    style.mm_button_text.insensitive_outlines = [(1, "#000000cc", 0, 1)]
+
     config.main_menu = [
         (u"Start Game", "start", "True"),
         (u"Continue", Continue(confirm=False), "can_continue_game()"),
