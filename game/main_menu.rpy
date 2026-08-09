@@ -6,7 +6,10 @@ init offset = -1
 
 init python:
     def can_continue_game():
-        return renpy.newest_slot(r"[^_]") is not None
+        return (
+            not getattr(persistent, "continue_blocked_after_ending", False)
+            and renpy.newest_slot(r"[^_]") is not None
+        )
 
     style.mm_root.background = Image("images/main_menu_pokrya.png")
     config.main_menu = [

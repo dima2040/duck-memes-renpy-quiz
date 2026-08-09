@@ -12,6 +12,15 @@ init python:
     def quiz_prompt_text(prompt):
         return re.sub(r"^\s*Вопрос\s*(?:№\s*)?\d+\.\s*", "", prompt)
 
+    def mark_game_started_for_continue():
+        persistent.continue_blocked_after_ending = False
+        renpy.save_persistent()
+        renpy.force_autosave()
+
+    def mark_game_completed_for_continue():
+        persistent.continue_blocked_after_ending = True
+        renpy.save_persistent()
+
 
 label start:
     $ score = 0
@@ -21,6 +30,7 @@ label start:
     $ perfect_main_rounds = 0
     $ current_question_number = 0
     $ correct_question_numbers = []
+    $ mark_game_started_for_continue()
     play music audio.school_calm_loop fadein 1.0
 
     scene bg_neophyte_classroom
@@ -220,6 +230,8 @@ label secret_first_last_ending:
 
     mbk "???"
 
+    $ mark_game_completed_for_continue()
+
     menu:
         "Попробовать снова":
             jump start
@@ -247,6 +259,8 @@ label perfect_victory:
     hide screen quiz_reaction_stamp
     with dissolve
 
+    $ mark_game_completed_for_continue()
+
     menu:
         "Пройти ещё раз":
             jump start
@@ -271,6 +285,8 @@ label victory:
     mbk "Да. Впервые за день последняя парта отличила шутку от лужи со звуком."
     p "Кля, Ква, Кря и Покря стоят на местах. Покляйко Squad салютует без самодеятельности."
     mbk "Школа видит: ты не просто угадываешь ответы, ты держишь мем-кодекс. Восходящая легенда зафиксирована."
+
+    $ mark_game_completed_for_continue()
 
     menu:
         "Пройти ещё раз":
@@ -313,6 +329,8 @@ label game_over:
     neo "То есть если повторить громче, это всё ещё неправильно?"
     mbk "Правильно. Следующий заход должен стать уроком: меньше паники, больше различения."
 
+    $ mark_game_completed_for_continue()
+
     menu:
         "Попробовать снова":
             jump start
@@ -337,6 +355,8 @@ label zero_score_ending:
     p "Покляйкомэн кладёт плащ на парту. Даже плащ понял, что сейчас лучше не развеваться."
     mbk "Канон не уничтожен. Он просто отошёл к окну и делает вид, что его не спрашивали."
     mbk "Игрок отправляется на пересдачу кря-кода. Без позора, но с полным пакетом домашнего Покря."
+
+    $ mark_game_completed_for_continue()
 
     menu:
         "Пересдать кря-код":
