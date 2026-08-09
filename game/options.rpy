@@ -24,6 +24,7 @@ Light instrumental music now supports the playthrough, victory, and game-over en
 define config.has_sound = True
 define config.has_music = True
 define config.has_voice = False
+define config.has_quicksave = False
 
 define audio.school_calm_loop = "audio/school_calm_loop.wav"
 define audio.victory_fanfare = "audio/victory_fanfare.wav"
