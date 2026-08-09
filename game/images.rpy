@@ -45,41 +45,6 @@ transform mbk_left:
     yalign 1.0
     yoffset 120
 
-transform mbk_enter_left:
-    zoom 1.1
-    xpos -470
-    yalign 1.0
-    yoffset 120
-    alpha 0.0
-    easeout 0.28 xpos -70 alpha 1.0
-
-transform mbk_quiz_correct:
-    zoom 1.1
-    xpos -70
-    yalign 1.0
-    yoffset 120
-    alpha 1.0
-    easeout 0.08 yoffset 96
-    easein 0.12 yoffset 120
-
-transform mbk_quiz_wrong:
-    zoom 1.1
-    xpos -70
-    yalign 1.0
-    yoffset 120
-    alpha 1.0
-    linear 0.05 xpos -42
-    linear 0.06 xpos -104
-    linear 0.08 xpos -70
-
-transform mbk_exit_left:
-    zoom 1.1
-    xpos -70
-    yalign 1.0
-    yoffset 120
-    alpha 1.0
-    easein 0.24 xpos -500 alpha 0.0
-
 transform duck_right:
     xalign 0.92
     yalign 1.0

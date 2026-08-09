@@ -34,15 +34,13 @@ label start:
     play music audio.school_calm_loop fadein 1.0
 
     scene bg_neophyte_classroom
-    call mbk_enter_scene
+    show mbk_placeholder at mbk_left
 
     mbk "В школьном коридоре сегодня не просто шум. Это мемная тревога."
     mbk "Неофиты повторяют Кля, Ква, Кря и Покря без различия: у них каждое слово теперь будто ответ на всё."
     neo "Мы берём звук, делаем лицо посерьёзнее - и класс смеётся. Значит, работает?"
     mbk "Смеётся не значит понимает. На перемене смеются и над упавшей шваброй."
     mbk "Ты пройдёшь три раунда: услышишь базу, удержишь кодекс и вернёшь словам смысл, когда класс захочет только шума."
-
-    call mbk_exit_quiz
 
     jump round_1_intro
 
@@ -60,42 +58,8 @@ label say_quiz_line(speaker_id, line_text):
     return
 
 
-label mbk_enter_scene:
-    show mbk_placeholder at mbk_enter_left
-    pause 0.28
-
-    return
-
-
-label mbk_enter_quiz:
-    show mbk_placeholder at mbk_enter_left
-    pause 0.28
-
-    return
-
-
-label mbk_quiz_reaction(is_correct):
-    if is_correct:
-        show mbk_placeholder at mbk_quiz_correct
-        pause 0.20
-    else:
-        show mbk_placeholder at mbk_quiz_wrong
-        pause 0.22
-
-    return
-
-
-label mbk_exit_quiz:
-    show mbk_placeholder at mbk_exit_left
-    pause 0.24
-    hide mbk_placeholder
-
-    return
-
-
 label play_quiz_question(question_data):
     $ current_question_number += 1
-    call mbk_enter_quiz
     $ selected_answer = renpy.call_screen("quiz_choice", prompt=quiz_prompt_text(question_data["prompt"]), answers=question_data["answers"])
 
     if selected_answer["correct"]:
@@ -106,7 +70,6 @@ label play_quiz_question(question_data):
         $ mistakes += 1
 
     $ reaction_image = "reaction_correct_icon" if selected_answer["correct"] else "reaction_wrong_icon"
-    call mbk_quiz_reaction(selected_answer["correct"])
     show screen quiz_reaction_stamp(reaction_image)
     with dissolve
 
@@ -119,7 +82,6 @@ label play_quiz_question(question_data):
 
     hide screen quiz_reaction_stamp
     with dissolve
-    call mbk_exit_quiz
 
     return
 
@@ -164,13 +126,11 @@ label play_quiz_round(round_data):
 
 label round_1_intro:
     scene bg_neophyte_classroom
-    call mbk_enter_scene
+    show mbk_placeholder at mbk_left
 
     mbk "Раунд 1: «База»."
     mbk "Здесь не ищут тайную мифологию. Здесь проверяют, подходит ли слово к ситуации."
     neo "Поняли: если слово звучит странно, мы сразу уверенные."
-
-    call mbk_exit_quiz
 
     call play_quiz_round(quiz_round_by_id("base"))
 
@@ -179,27 +139,23 @@ label round_1_intro:
 
 label interlude_1:
     scene bg_neophyte_classroom
-    call mbk_enter_scene
+    show mbk_placeholder at mbk_left
 
     mbk "Раунд закрыт: [round_score] из [round_total]."
     neo "То есть мем держится не на том, что слово короткое и громкое?"
     mbk "Уже лучше. Коротким бывает сигнал, но смысл у него должен быть точным."
     mbk "Теперь мало выбрать правильное. Надо объяснить, почему кодекс это выдерживает."
 
-    call mbk_exit_quiz
-
     jump round_2_intro
 
 
 label round_2_intro:
     scene bg_neophyte_classroom
-    call mbk_enter_scene
+    show mbk_placeholder at mbk_left
 
     mbk "Раунд 2: «Кодекс»."
     mbk "Канон не зубрят как параграф. Его проверяют: совпадает ли слово с образом, жестом и ситуацией."
     neo "Последняя парта готова проверить всё неправильным способом."
-
-    call mbk_exit_quiz
 
     call play_quiz_round(quiz_round_by_id("code"))
 
@@ -208,27 +164,23 @@ label round_2_intro:
 
 label interlude_2:
     scene bg_neophyte_classroom
-    call mbk_enter_scene
+    show mbk_placeholder at mbk_left
 
     mbk "Раунд закрыт: [round_score] из [round_total]."
     neo "А если мы смешаем Кля, Ква, Кря и Покря, добавим крик и скажем, что это глубокий слой?"
     mbk "Тогда школьный чат получит много сообщений и ноль легенды."
     mbk "Финальный раунд будет под давлением. Неофиты начнут подменять смысл прямо во время ответа."
 
-    call mbk_exit_quiz
-
     jump round_3_intro
 
 
 label round_3_intro:
     scene bg_neophyte_classroom
-    call mbk_enter_scene
+    show mbk_placeholder at mbk_left
 
     mbk "Раунд 3: «Испытание легенды»."
     mbk "Теперь ты не просто выбираешь вариант. Ты возвращаешь каждое слово на место, пока класс продаёт шум как озарение."
     neo "Мы уже назвали обычный шум «озарением» и почти поверили."
-
-    call mbk_exit_quiz
 
     call play_quiz_round(quiz_round_by_id("legend_trial"))
 
@@ -237,14 +189,12 @@ label round_3_intro:
 
 label final_ceremony_question:
     scene bg_school_party
-    call mbk_enter_scene
+    show mbk_placeholder at mbk_left
 
     mbk "Три раунда закрыты, но школьная шкала требует ровного десятка."
     neo "А если мы скажем «восемь из десяти», хотя вопросов было девять, это будет звучать солиднее?"
     mbk "Будет звучать как математика, которую укусил мем без объяснения."
     mbk "Поэтому перед финалом остаётся десятый, обрядовый вопрос."
-
-    call mbk_exit_quiz
 
     call play_quiz_question(quiz_final_question())
 
@@ -252,13 +202,13 @@ label final_ceremony_question:
 
 
 label finale_check:
+    scene bg_school_party
+    show mbk_placeholder at mbk_left
+
     $ total_questions = quiz_total_questions()
 
     if correct_question_numbers == [1, total_questions]:
         jump secret_first_last_ending
-
-    scene bg_school_party
-    call mbk_enter_scene
 
     mbk "Три раунда и обрядовый вопрос закончены. Итог: [score] из [total_questions]."
 
@@ -267,16 +217,14 @@ label finale_check:
     elif score >= QUIZ_LEGEND_THRESHOLD:
         jump victory
     elif score == 0:
-        call mbk_exit_quiz
         jump zero_score_ending
     else:
-        call mbk_exit_quiz
         jump game_over
 
 
 label secret_first_last_ending:
     scene bg_secret_first_last_classroom
-    call mbk_enter_scene
+    show mbk_placeholder at mbk_left
     play music audio.secret_cry_ambience fadeout 1.5 fadein 1.5
     $ unlock_secret_first_last_achievements()
 
@@ -369,7 +317,7 @@ label show_loss_result_plaque:
 
 label game_over:
     scene bg_zero_score_classroom
-    call mbk_enter_scene
+    show mbk_placeholder at mbk_left
     play music audio.game_over_melancholy fadeout 1.5 fadein 1.5
 
     $ total_questions = quiz_total_questions()
@@ -392,7 +340,7 @@ label game_over:
 
 label zero_score_ending:
     scene bg_zero_score_failure
-    call mbk_enter_scene
+    show mbk_placeholder at mbk_left
     play music audio.game_over_melancholy fadeout 1.5 fadein 1.5
 
     $ total_questions = quiz_total_questions()
