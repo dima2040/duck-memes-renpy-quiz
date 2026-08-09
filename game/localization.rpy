@@ -10,7 +10,10 @@ define config.default_language = "russian"
 translate russian strings:
 
     old "Start Game"
-    new "Начать игру"
+    new "Начать"
+
+    old "Continue"
+    new "Продолжить"
 
     old "Load Game"
     new "Загрузить"
