@@ -6,6 +6,13 @@ define mbk = Character("МужикБыкКорова", color="#ffd84d")
 define neo = Character("Неофиты", color="#c7f0ff")
 define p = Character("Покляйкомэн", color="#8ee8ff")
 
+init python:
+    import re
+
+    def quiz_prompt_text(prompt):
+        return re.sub(r"^\s*Вопрос\s*(?:№\s*)?\d+\.\s*", "", prompt)
+
+
 label start:
     $ score = 0
     $ mistakes = 0
@@ -43,8 +50,7 @@ label say_quiz_line(speaker_id, line_text):
 
 label play_quiz_question(question_data):
     $ current_question_number += 1
-    $ mbk(question_data["prompt"])
-    $ selected_answer = renpy.display_menu([(answer["text"], answer) for answer in question_data["answers"]])
+    $ selected_answer = renpy.call_screen("quiz_choice", prompt=quiz_prompt_text(question_data["prompt"]), answers=question_data["answers"])
 
     if selected_answer["correct"]:
         $ score += 1

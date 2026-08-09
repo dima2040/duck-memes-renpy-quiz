@@ -83,6 +83,24 @@ screen choice(items):
                 textbutton i.caption action i.action
 
 
+screen quiz_choice(prompt, answers):
+    zorder 100
+    style_prefix "choice"
+
+    frame:
+        style "choice_plate"
+
+        vbox:
+            style "quiz_choice_vbox"
+
+            text prompt style "quiz_prompt_text"
+
+            add Solid("#f4bf66") xsize gui.choice_button_width ysize 3
+
+            for answer in answers:
+                textbutton answer["text"] action Return(answer)
+
+
 screen quiz_reaction_stamp(reaction_image):
     zorder 95
 
@@ -105,6 +123,8 @@ style say_dialogue is default
 style say_thought is say_dialogue
 style choice_plate is default
 style choice_vbox is vbox
+style quiz_choice_vbox is vbox
+style quiz_prompt_text is default
 style choice_button is button
 style choice_button_text is button_text
 
@@ -151,6 +171,16 @@ style choice_plate:
 
 style choice_vbox:
     spacing 8
+
+style quiz_choice_vbox:
+    spacing 10
+
+style quiz_prompt_text:
+    xsize gui.choice_button_width
+    color gui.text_color
+    size 25
+    line_spacing 2
+    outlines [(1, "#071017b8", 0, 1)]
 
 style choice_button:
     xsize gui.choice_button_width
