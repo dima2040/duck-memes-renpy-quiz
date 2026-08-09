@@ -7,11 +7,6 @@ define neo = Character("Неофиты", color="#c7f0ff")
 define p = Character("Покляйкомэн", color="#8ee8ff")
 
 init python:
-    import re
-
-    def quiz_prompt_text(prompt):
-        return re.sub(r"^\s*Вопрос\s*(?:№\s*)?\d+\.\s*", "", prompt)
-
     def mark_game_started_for_continue():
         persistent.continue_blocked_after_ending = False
         renpy.save_persistent()
@@ -70,7 +65,7 @@ label play_story_scene(scene_id):
 
 label play_quiz_question(question_data):
     $ current_question_number += 1
-    $ selected_answer = renpy.call_screen("quiz_choice", prompt=quiz_prompt_text(question_data["prompt"]), answers=question_data["answers"])
+    $ selected_answer = renpy.call_screen("quiz_choice", prompt=question_data["prompt"], answers=question_data["answers"])
 
     if selected_answer["correct"]:
         $ score += 1
